@@ -13,7 +13,7 @@ namespace ContentSecurity.Core.ItemSecurity
 
         protected IItemSecurityRepository ItemSecurityRepository { get; private set; }
 
-        public bool HasPermission(string permissionName, Item item, User user)
+        public virtual bool HasPermission(string permissionName, Item item, User user)
         {
             if (item == null)
             {
