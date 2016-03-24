@@ -1,0 +1,15 @@
+.vs/
+ContentSecurity.TDS.Master/obj/
+ContentSecurity.Core/obj/
+ContentSecurity.Core/bin/
+ContentSecurity.TDS.TestContent/obj/
+ContentSecurity.UnitTests/bin/
+ContentSecurity.UnitTests/obj/
+ContentSecurity.Web/obj/
+Lib/*.dll
+Lib/*.xml
+Lib/Social/*.dll
+Lib/*.lic
+ContentSecurity.sln.DotSettings.user
+ContentSecurity.Web/bin/
+ContentSecurity.Web/ContentSecurity.Web.csproj.user
