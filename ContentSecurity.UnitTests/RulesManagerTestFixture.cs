@@ -1,15 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Runtime.Serialization;
 using ContentSecurity.Core.Rules;
 using FluentAssertions;
 using NSubstitute;
 using NUnit.Framework;
-using Sitecore.Data;
 using Sitecore.Data.Items;
-using Sitecore.Globalization;
 using Sitecore.Rules;
-using Version = Sitecore.Data.Version;
 
 namespace ContentSecurity.UnitTests
 {
@@ -30,10 +26,12 @@ namespace ContentSecurity.UnitTests
             Guid branchId = Guid.Empty;
             string itemName = "fred";
 
-            Item item = TestUtilities.GetTestItem(itemId, templateId, branchId, itemName);
+            Item rulesItem = TestUtilities.GetTestItem(itemId, templateId, branchId, itemName);
+
+            Item itemToEvaluate = TestUtilities.GetTestItem(itemId, templateId, branchId, itemName);
 
             // Act
-            bool result = testHarness.RulesManager.EvaluateRulesFromField<RuleContext>("fieldName", item);
+            bool result = testHarness.RulesManager.EvaluateRulesFromField<RuleContext>("fieldName", rulesItem, itemToEvaluate);
 
             // Assert
             result.Should().BeTrue();
@@ -52,10 +50,13 @@ namespace ContentSecurity.UnitTests
             Guid branchId = Guid.Empty;
             string itemName = "fred";
 
-            Item item = TestUtilities.GetTestItem(itemId, templateId, branchId, itemName);
+            Item rulesItem = TestUtilities.GetTestItem(itemId, templateId, branchId, itemName);
+
+            Item itemToEvaluate = TestUtilities.GetTestItem(itemId, templateId, branchId, itemName);
+            ruleContext.Item = itemToEvaluate;
 
             // Act
-            bool result = testHarness.RulesManager.EvaluateRulesFromField(ruleContext, "fieldName", item);
+            bool result = testHarness.RulesManager.EvaluateRulesFromField(ruleContext, "fieldName", rulesItem);
 
             // Assert
             result.Should().BeTrue();
@@ -96,10 +97,11 @@ namespace ContentSecurity.UnitTests
             Guid branchId = Guid.Empty;
             string itemName = "fred";
 
-            Item item = TestUtilities.GetTestItem(itemId, templateId, branchId, itemName);
+            Item rulesItem = TestUtilities.GetTestItem(itemId, templateId, branchId, itemName);
+            Item itemToEvaluate = TestUtilities.GetTestItem(itemId, templateId, branchId, itemName);
 
             // Act
-            bool result = testHarness.RulesManager.EvaluateRulesFromField<RuleContext>("fieldName", item);
+            bool result = testHarness.RulesManager.EvaluateRulesFromField<RuleContext>("fieldName", rulesItem, itemToEvaluate);
 
             // Assert
             result.Should().BeFalse();
@@ -118,10 +120,12 @@ namespace ContentSecurity.UnitTests
             Guid branchId = Guid.Empty;
             string itemName = "fred";
 
-            Item item = TestUtilities.GetTestItem(itemId, templateId, branchId, itemName);
+            Item rulesItem = TestUtilities.GetTestItem(itemId, templateId, branchId, itemName);
+            Item itemToEvaluate = TestUtilities.GetTestItem(itemId, templateId, branchId, itemName);
+            ruleContext.Item = itemToEvaluate;
 
             // Act
-            bool result = testHarness.RulesManager.EvaluateRulesFromField(ruleContext, "fieldName", item);
+            bool result = testHarness.RulesManager.EvaluateRulesFromField(ruleContext, "fieldName", rulesItem);
 
             // Assert
             result.Should().BeFalse();
@@ -179,9 +183,10 @@ namespace ContentSecurity.UnitTests
             string itemName = "fred";
 
             Item item = TestUtilities.GetTestItem(itemId, templateId, branchId, itemName);
+            Item itemToEvaluate = TestUtilities.GetTestItem(itemId, templateId, branchId, itemName);
 
             // Act
-            bool result = testHarness.RulesManager.ExecuteRulesFromField<RuleContext>("fieldName", item);
+            bool result = testHarness.RulesManager.ExecuteRulesFromField<RuleContext>("fieldName", item, itemToEvaluate);
 
             // Assert
             result.Should().BeTrue();
@@ -243,10 +248,11 @@ namespace ContentSecurity.UnitTests
             Guid branchId = Guid.Empty;
             string itemName = "fred";
 
-            Item item = TestUtilities.GetTestItem(itemId, templateId, branchId, itemName);
+            Item rulesItem = TestUtilities.GetTestItem(itemId, templateId, branchId, itemName);
+            Item itemToEvaluate = TestUtilities.GetTestItem(itemId, templateId, branchId, itemName);
 
             // Act
-            bool result = testHarness.RulesManager.ExecuteRulesFromField<RuleContext>("fieldName", item);
+            bool result = testHarness.RulesManager.ExecuteRulesFromField<RuleContext>("fieldName", rulesItem, itemToEvaluate);
 
             // Assert
             result.Should().BeFalse();

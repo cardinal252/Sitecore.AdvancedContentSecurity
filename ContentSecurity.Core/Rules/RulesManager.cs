@@ -15,17 +15,17 @@ namespace ContentSecurity.Core.Rules
 
         protected IRulesRepository RulesRepository { get; private set; }
 
-        public virtual bool EvaluateRulesFromField<T>(T ruleContext, string fieldName, Item item) where T : RuleContext
+        public virtual bool EvaluateRulesFromField<T>(T ruleContext, string fieldName, Item rulesItem) where T : RuleContext
         {
-            if (item == null)
+            if (rulesItem == null)
             {
-                throw new ArgumentNullException(nameof(item));
+                throw new ArgumentNullException(nameof(rulesItem));
             }
 
             try
             {
 
-                IEnumerable<Rule<RuleContext>> rules = RulesRepository.GetRules<RuleContext>(fieldName, item);
+                IEnumerable<Rule<RuleContext>> rules = RulesRepository.GetRules<RuleContext>(fieldName, rulesItem);
 
                 if (rules == null)
                 {
@@ -43,21 +43,21 @@ namespace ContentSecurity.Core.Rules
             }
         }
 
-        public virtual bool EvaluateRulesFromField<T>(string fieldName, Item item) where T : RuleContext, new()
+        public virtual bool EvaluateRulesFromField<T>(string fieldName, Item rulesItem, Item itemToEvaluate) where T : RuleContext, new()
         {
-            return EvaluateRulesFromField(new T(), fieldName, item);
+            return EvaluateRulesFromField(new T { Item = itemToEvaluate }, fieldName, rulesItem);
         }
 
-        public virtual bool ExecuteRulesFromField<T>(T ruleContext, string fieldName, Item item) where T : RuleContext
+        public virtual bool ExecuteRulesFromField<T>(T ruleContext, string fieldName, Item rulesItem) where T : RuleContext
         {
-            if (item == null)
+            if (rulesItem == null)
             {
-                throw new ArgumentNullException(nameof(item));
+                throw new ArgumentNullException(nameof(rulesItem));
             }
 
             try
             {
-                IEnumerable<Rule<RuleContext>> rules = RulesRepository.GetRules<RuleContext>(fieldName, item);
+                IEnumerable<Rule<RuleContext>> rules = RulesRepository.GetRules<RuleContext>(fieldName, rulesItem);
 
                 if (rules == null)
                 {
@@ -75,9 +75,9 @@ namespace ContentSecurity.Core.Rules
             }
         }
 
-        public virtual bool ExecuteRulesFromField<T>(string fieldName, Item item) where T : RuleContext, new()
+        public virtual bool ExecuteRulesFromField<T>(string fieldName, Item rulesItem, Item itemToEvaluate) where T : RuleContext, new()
         {
-            return ExecuteRulesFromField(new T(), fieldName, item);
+            return ExecuteRulesFromField(new T { Item = itemToEvaluate}, fieldName, rulesItem);
         }
     }
 }

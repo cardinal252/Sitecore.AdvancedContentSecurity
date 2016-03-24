@@ -53,8 +53,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Rules\IRulesManager.cs" />
     <Compile Include="Rules\IRulesRepository.cs" />
-    <Compile Include="Rules\IsUnrestrictedCondition.cs" />
+    <Compile Include="Rules\IsRestrictedCondition.cs" />
     <Compile Include="Rules\RulesManager.cs" />
+    <Compile Include="Rules\RulesRepository.cs" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
