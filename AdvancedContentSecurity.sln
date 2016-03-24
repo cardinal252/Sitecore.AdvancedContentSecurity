@@ -1,0 +1,47 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.24720.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdvancedContentSecurity.Web", "AdvancedContentSecurity.Web\AdvancedContentSecurity.Web.csproj", "{98CDE66E-8367-4375-9679-E8ED4D728E6A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdvancedContentSecurity.Core", "AdvancedContentSecurity.Core\AdvancedContentSecurity.Core.csproj", "{F86891EE-9388-4A1C-9D2D-CE52ABBB7002}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdvancedContentSecurity.UnitTests", "AdvancedContentSecurity.UnitTests\AdvancedContentSecurity.UnitTests.csproj", "{54412448-AA21-48A6-BD12-77BD60070222}"
+EndProject
+Project("{CAA73BB0-EF22-4D79-A57E-DF67B3BA9C80}") = "AdvancedContentSecurity.TDS.Master", "AdvancedContentSecurity.TDS.Master\AdvancedContentSecurity.TDS.Master.scproj", "{1DFD0598-626A-42D8-8B13-8E3D1C4C3C5A}"
+EndProject
+Project("{CAA73BB0-EF22-4D79-A57E-DF67B3BA9C80}") = "AdvancedContentSecurity.TDS.TestContent", "AdvancedContentSecurity.TDS.TestContent\AdvancedContentSecurity.TDS.TestContent.scproj", "{E7A5D21C-ED40-456D-AF7D-0CB98FC72053}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{D8400EEF-7839-41E8-81D2-CB2433BDA830}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{98CDE66E-8367-4375-9679-E8ED4D728E6A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{98CDE66E-8367-4375-9679-E8ED4D728E6A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{98CDE66E-8367-4375-9679-E8ED4D728E6A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{98CDE66E-8367-4375-9679-E8ED4D728E6A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F86891EE-9388-4A1C-9D2D-CE52ABBB7002}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F86891EE-9388-4A1C-9D2D-CE52ABBB7002}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F86891EE-9388-4A1C-9D2D-CE52ABBB7002}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F86891EE-9388-4A1C-9D2D-CE52ABBB7002}.Release|Any CPU.Build.0 = Release|Any CPU
+		{54412448-AA21-48A6-BD12-77BD60070222}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{54412448-AA21-48A6-BD12-77BD60070222}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{54412448-AA21-48A6-BD12-77BD60070222}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{54412448-AA21-48A6-BD12-77BD60070222}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1DFD0598-626A-42D8-8B13-8E3D1C4C3C5A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1DFD0598-626A-42D8-8B13-8E3D1C4C3C5A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E7A5D21C-ED40-456D-AF7D-0CB98FC72053}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E7A5D21C-ED40-456D-AF7D-0CB98FC72053}.Release|Any CPU.ActiveCfg = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{54412448-AA21-48A6-BD12-77BD60070222} = {D8400EEF-7839-41E8-81D2-CB2433BDA830}
+	EndGlobalSection
+EndGlobal
