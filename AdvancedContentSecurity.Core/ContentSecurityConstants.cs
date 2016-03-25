@@ -1,4 +1,7 @@
-﻿namespace AdvancedContentSecurity.Core
+﻿using Sitecore;
+using Sitecore.Syndication;
+
+namespace AdvancedContentSecurity.Core
 {
     public static class ContentSecurityConstants
     {
@@ -9,14 +12,41 @@
                 get { return "item:restricted"; }
             }
 
-            public static string RulesRestricted
+            public static string Rules
             {
-                get { return "item:rulesrestricted"; }
+                get { return "item:rules"; }
+            }
+        }
+
+        public static class FieldNames 
+        {
+            public static string ReadRules
+            {
+                get { return "Read Rules"; }
             }
 
-            public static string RulesRead
+            public static string RestrictedRules
             {
-                get { return "item:rulesread"; }
+                get { return "Restricted Rules"; }
+            }
+
+            public static string Rule
+            {
+                get { return "Rule"; }
+            }
+        }
+
+        public static class Ids
+        {
+            public static class Devices
+            {
+                public static string RestrictedDeviceId
+                {
+                    get
+                    {
+                        return Sitecore.Configuration.Settings.GetSetting("AdvancedContentSecurity.RestrictedDeviceId");
+                    }
+                }
             }
         }
     }

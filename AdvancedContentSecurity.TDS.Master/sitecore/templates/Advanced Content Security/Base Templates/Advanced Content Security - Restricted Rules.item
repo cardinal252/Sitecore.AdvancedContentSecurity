@@ -1,54 +1,40 @@
 ----item----
 version: 1
-id: {73E718E6-70B4-4426-B94F-F705AB078448}
+id: {3ABBAC6F-E63B-48F0-829E-90B0179CEAAF}
 database: master
-path: /sitecore/layout/Devices/Restricted
-parent: {E18F4BC6-46A2-4842-898B-B6613733F06F}
-name: Restricted
+path: /sitecore/templates/Advanced Content Security/Base Templates/Advanced Content Security - Restricted Rules
+parent: {F96017C4-2923-4ED4-A01B-1C19B55CC1C7}
+name: Advanced Content Security - Restricted Rules
 master: {00000000-0000-0000-0000-000000000000}
-template: {B6F7EEB4-E8D7-476F-8936-5ACE6A76F20B}
-templatekey: Device
+template: {AB86861A-6030-46C5-B394-E8F99E8B87DB}
+templatekey: Template
 
 ----field----
-field: {160B90C2-4011-4E89-9C5E-C617DDFBC8C7}
-name: Fallback device
-key: fallback device
+field: {12C33F3F-86C5-43A5-AEB4-5598CEC45116}
+name: __Base template
+key: __base template
 content-length: 38
 
-{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}
+{1930BBEB-7805-471A-A3BE-4858AC7CF696}
 ----field----
 field: {06D5295C-ED2F-4A54-9BF2-26228D113318}
 name: __Icon
 key: __icon
 content-length: 22
 
-Network/32x32/key1.png
+network/32x32/key1.png
 ----version----
 language: en
 version: 1
-revision: fa197659-ab71-415d-a85a-35f6b1d9c135
+revision: 7eb3e558-62de-4f1e-aa05-9f2ef3265eb4
 
-----field----
-field: {BF584A6D-BF22-49E2-AB10-63F5AE88C7BD}
-name: Rule
-key: rule
-content-length: 11
-
-<ruleset />
-----field----
-field: {52807595-0F8F-4B20-8D2A-CB71D28C6103}
-name: __Owner
-key: __owner
-content-length: 14
-
-sitecore\admin
 ----field----
 field: {25BED78C-4957-4165-998A-CA1B52F67497}
 name: __Created
 key: __created
 content-length: 16
 
-20160323T155139Z
+20160325T093835Z
 ----field----
 field: {5DD74568-4D4B-44C1-B513-0AF5F4CDA34F}
 name: __Created by
@@ -62,14 +48,14 @@ name: __Revision
 key: __revision
 content-length: 36
 
-fa197659-ab71-415d-a85a-35f6b1d9c135
+7eb3e558-62de-4f1e-aa05-9f2ef3265eb4
 ----field----
 field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
 name: __Updated
 key: __updated
 content-length: 16
 
-20160325T131349Z
+20160325T125333Z
 ----field----
 field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
 name: __Updated by

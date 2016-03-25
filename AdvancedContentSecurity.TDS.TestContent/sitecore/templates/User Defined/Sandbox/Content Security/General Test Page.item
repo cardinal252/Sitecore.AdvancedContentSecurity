@@ -13,9 +13,9 @@ templatekey: Template
 field: {12C33F3F-86C5-43A5-AEB4-5598CEC45116}
 name: __Base template
 key: __base template
-content-length: 77
+content-length: 38
 
-{1930BBEB-7805-471A-A3BE-4858AC7CF696}|{FFECF8C4-118E-48B2-A3BA-E4C32A458696}
+{1930BBEB-7805-471A-A3BE-4858AC7CF696}
 ----field----
 field: {F7D48A55-2158-4F02-9356-756654404F73}
 name: __Standard values
@@ -40,7 +40,7 @@ content-length: 0
 ----version----
 language: en
 version: 1
-revision: 2aeb9be4-533e-4f22-b412-6a1e4a286d51
+revision: d4158c7b-11eb-4085-800e-31bbf160e011
 
 ----field----
 field: {25BED78C-4957-4165-998A-CA1B52F67497}
@@ -62,14 +62,14 @@ name: __Revision
 key: __revision
 content-length: 36
 
-2aeb9be4-533e-4f22-b412-6a1e4a286d51
+d4158c7b-11eb-4085-800e-31bbf160e011
 ----field----
 field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
 name: __Updated
 key: __updated
 content-length: 16
 
-20160325T094019Z
+20160325T113012Z
 ----field----
 field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
 name: __Updated by

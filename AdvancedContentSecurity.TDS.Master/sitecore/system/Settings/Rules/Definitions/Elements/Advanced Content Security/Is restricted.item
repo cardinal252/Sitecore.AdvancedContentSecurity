@@ -13,13 +13,13 @@ templatekey: Condition
 field: {AB51C8B2-F0E1-4471-9AAE-CC080D774923}
 name: Type
 key: type
-content-length: 86
+content-length: 97
 
-AdvancedContentSecurity.Core.Rules.IsRestrictedCondition, AdvancedContentSecurity.Core
+AdvancedContentSecurity.Core.Rules.Conditions.IsRestrictedCondition, AdvancedContentSecurity.Core
 ----version----
 language: en
 version: 1
-revision: 23a6e00b-8112-4267-8c34-8638533162be
+revision: 3a53bd4d-9498-4efa-8d22-0c55ce213498
 
 ----field----
 field: {AF321234-4EB9-4EF5-9197-65903351939C}
@@ -55,14 +55,14 @@ name: __Revision
 key: __revision
 content-length: 36
 
-23a6e00b-8112-4267-8c34-8638533162be
+3a53bd4d-9498-4efa-8d22-0c55ce213498
 ----field----
 field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
 name: __Updated
 key: __updated
 content-length: 16
 
-20160324T150524Z
+20160325T141146Z
 ----field----
 field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
 name: __Updated by

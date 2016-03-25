@@ -1,25 +1,25 @@
 ----item----
 version: 1
-id: {6BE35549-45BD-4753-81EF-3AF007795486}
+id: {91ACABF3-DE5D-4E1B-9DFA-B3F427B46A9F}
 database: master
-path: /sitecore/templates/Advanced Content Security/Base Templates/ACS Rule Selection/Advanced Content Security
-parent: {FFECF8C4-118E-48B2-A3BA-E4C32A458696}
+path: /sitecore/system/Modules/Advanced Content Security
+parent: {08477468-D438-43D4-9D6A-6D84A611971C}
 name: Advanced Content Security
 master: {00000000-0000-0000-0000-000000000000}
-template: {E269FBB5-3750-427A-9149-7AA950B49301}
-templatekey: Template section
+template: {A87A00B1-E6DB-45AB-8B54-636FEC3B5523}
+templatekey: Folder
 
 ----field----
 field: {06D5295C-ED2F-4A54-9BF2-26228D113318}
 name: __Icon
 key: __icon
-content-length: 22
+content-length: 32
 
-network/32x32/key1.png
+applications/32x32/text_lock.png
 ----version----
 language: en
 version: 1
-revision: b7364fce-3c01-4113-be90-42a8c8a186f1
+revision: dab299cc-92f7-4fc9-97e0-7b0d2859cb4a
 
 ----field----
 field: {25BED78C-4957-4165-998A-CA1B52F67497}
@@ -27,7 +27,7 @@ name: __Created
 key: __created
 content-length: 16
 
-20160325T093907Z
+20160324T151436Z
 ----field----
 field: {5DD74568-4D4B-44C1-B513-0AF5F4CDA34F}
 name: __Created by
@@ -41,14 +41,14 @@ name: __Revision
 key: __revision
 content-length: 36
 
-b7364fce-3c01-4113-be90-42a8c8a186f1
+dab299cc-92f7-4fc9-97e0-7b0d2859cb4a
 ----field----
 field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
 name: __Updated
 key: __updated
 content-length: 16
 
-20160325T094006Z
+20160325T112741Z
 ----field----
 field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
 name: __Updated by

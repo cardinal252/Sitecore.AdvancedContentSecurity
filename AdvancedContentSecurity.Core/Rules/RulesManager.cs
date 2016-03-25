@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using ContentSecurity.Core.Rules;
 using Sitecore.Data.Items;
 using Sitecore.Rules;
 

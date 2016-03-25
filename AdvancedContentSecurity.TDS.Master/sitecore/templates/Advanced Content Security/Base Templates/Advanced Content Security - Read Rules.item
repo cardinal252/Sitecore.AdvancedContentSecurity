@@ -2,9 +2,9 @@
 version: 1
 id: {FFECF8C4-118E-48B2-A3BA-E4C32A458696}
 database: master
-path: /sitecore/templates/Advanced Content Security/Base Templates/ACS Rule Selection
+path: /sitecore/templates/Advanced Content Security/Base Templates/Advanced Content Security - Read Rules
 parent: {F96017C4-2923-4ED4-A01B-1C19B55CC1C7}
-name: ACS Rule Selection
+name: Advanced Content Security - Read Rules
 master: {00000000-0000-0000-0000-000000000000}
 template: {AB86861A-6030-46C5-B394-E8F99E8B87DB}
 templatekey: Template
@@ -26,7 +26,7 @@ network/32x32/key1.png
 ----version----
 language: en
 version: 1
-revision: 508e2005-907f-47fe-94c4-5624d6ebf864
+revision: 346b0f38-af06-4bf6-83ee-f08411865746
 
 ----field----
 field: {25BED78C-4957-4165-998A-CA1B52F67497}
@@ -48,14 +48,14 @@ name: __Revision
 key: __revision
 content-length: 36
 
-508e2005-907f-47fe-94c4-5624d6ebf864
+346b0f38-af06-4bf6-83ee-f08411865746
 ----field----
 field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
 name: __Updated
 key: __updated
 content-length: 16
 
-20160325T093940Z
+20160325T125318Z
 ----field----
 field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
 name: __Updated by

@@ -1,0 +1,44 @@
+----item----
+version: 1
+id: {C454CC55-D310-4824-8326-E45A83915398}
+database: master
+path: /sitecore/system/Modules/Advanced Content Security/Read Content Security Rules
+parent: {91ACABF3-DE5D-4E1B-9DFA-B3F427B46A9F}
+name: Read Content Security Rules
+master: {00000000-0000-0000-0000-000000000000}
+template: {2F83505E-C4AC-4776-BE07-F10F1792F07D}
+templatekey: Content Security Rule Conditions
+
+----version----
+language: en
+version: 1
+revision: 2560830a-ef0d-428f-bf79-10e0411093b5
+
+----field----
+field: {25BED78C-4957-4165-998A-CA1B52F67497}
+name: __Created
+key: __created
+content-length: 16
+
+20160324T153918Z
+----field----
+field: {8CDC337E-A112-42FB-BBB4-4143751E123F}
+name: __Revision
+key: __revision
+content-length: 36
+
+2560830a-ef0d-428f-bf79-10e0411093b5
+----field----
+field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
+name: __Updated
+key: __updated
+content-length: 16
+
+20160325T112816Z
+----field----
+field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
+name: __Updated by
+key: __updated by
+content-length: 14
+
+sitecore\admin

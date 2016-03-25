@@ -2,9 +2,9 @@
 version: 1
 id: {F7BAB683-B80D-46F8-8CBD-475FC8FD0EFF}
 database: master
-path: /sitecore/content/Home/Content Security/Restricted Page
+path: /sitecore/content/Home/Content Security/Restricted
 parent: {40D93C17-CC8C-4C6E-9F04-B6BD383C77DA}
-name: Restricted Page
+name: Restricted
 master: {00000000-0000-0000-0000-000000000000}
 template: {E31ECBDC-0DB8-44B4-AAA6-48E6B0520B8D}
 templatekey: General Test Page
@@ -20,9 +20,9 @@ content-length: 3
 field: {F1A1FE9E-A60C-4DDB-A3A0-BB5B29FE732E}
 name: __Renderings
 key: __renderings
-content-length: 1181
+content-length: 735
 
-<r xmlns:p="p" xmlns:s="s" p:p="1"><d id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}"><r uid="{43222D12-08C9-453B-AE96-D406EBB95126}" p:before="r[@uid='{CF044AD9-0332-407A-ABDE-587214A2C808}']" s:ds="" s:id="{885B8314-7D8C-4CBB-8000-01421EA8F406}" s:par="" s:ph="main" /><r uid="{CF044AD9-0332-407A-ABDE-587214A2C808}" p:before="r[@uid='{B343725A-3A93-446E-A9C8-3A2CBD3DB489}']" s:ds="" s:id="{CE4ADCFB-7990-4980-83FB-A00C1E3673DB}" s:par="" s:ph="/main/centercolumn" /><r uid="{B343725A-3A93-446E-A9C8-3A2CBD3DB489}" s:ds="" s:id="{493B3A83-0FA7-4484-8FC9-4680991CF743}" s:par="" s:ph="/main/centercolumn/content"><rls><ruleset><rule uid="{680D1876-03C8-464E-9B75-7DF7A40B1838}" s:name="Condition Name"><conditions><condition uid="E5ACF30D56DE462E8F7F04039B747BCA" s:id="{33588267-13F6-4001-9E63-E215D1B1949F}" /></conditions><actions><action uid="5CAAB7652BFA4992A683559DE9BC1318" s:id="{25F351A1-712D-45F8-857D-8AD95BB2ACE9}" /></actions></rule><rule uid="{00000000-0000-0000-0000-000000000000}" s:name="Default"><conditions><condition uid="9EC9C62B4FEF49AAB55318BD8FF51B5C" s:id="{4888ABBB-F17D-4485-B14B-842413F88732}" /></conditions><actions /></rule></ruleset></rls></r></d></r>
+<r xmlns:p="p" xmlns:s="s" p:p="1"><d id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}"><r uid="{B343725A-3A93-446E-A9C8-3A2CBD3DB489}"><rls><ruleset><rule uid="{680D1876-03C8-464E-9B75-7DF7A40B1838}" p:before="rule[@uid='{00000000-0000-0000-0000-000000000000}']" s:name="Condition Name"><conditions><condition uid="E5ACF30D56DE462E8F7F04039B747BCA" s:id="{33588267-13F6-4001-9E63-E215D1B1949F}" /></conditions><actions><action uid="5CAAB7652BFA4992A683559DE9BC1318" s:id="{25F351A1-712D-45F8-857D-8AD95BB2ACE9}" /></actions></rule><rule uid="{00000000-0000-0000-0000-000000000000}"><conditions><condition uid="9EC9C62B4FEF49AAB55318BD8FF51B5C" s:id="{4888ABBB-F17D-4485-B14B-842413F88732}" /></conditions></rule></ruleset></rls></r></d></r>
 ----field----
 field: {DEC8D2D5-E3CF-48B6-A653-8E69E2716641}
 name: __Security
@@ -33,7 +33,7 @@ au|sitecore\Admin|pe|-item:restricted|pd|-item:restricted|au|extranet\Anonymous|
 ----version----
 language: en
 version: 1
-revision: 099799a0-f236-4883-9b73-e9daacb83973
+revision: 3c166d7d-acea-498b-8a1c-84f0ce475586
 
 ----field----
 field: {8ED0A498-5A79-4CC5-B162-2D7024511481}
@@ -76,14 +76,14 @@ name: __Revision
 key: __revision
 content-length: 36
 
-099799a0-f236-4883-9b73-e9daacb83973
+3c166d7d-acea-498b-8a1c-84f0ce475586
 ----field----
 field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
 name: __Updated
 key: __updated
 content-length: 16
 
-20160324T155236Z
+20160325T130411Z
 ----field----
 field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
 name: __Updated by

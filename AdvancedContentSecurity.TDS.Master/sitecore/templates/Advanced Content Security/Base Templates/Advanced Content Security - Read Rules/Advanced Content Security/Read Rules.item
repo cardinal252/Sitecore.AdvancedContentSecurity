@@ -2,9 +2,9 @@
 version: 1
 id: {BEDB2B49-7E01-4596-A9E7-1DBA6210E5E8}
 database: master
-path: /sitecore/templates/Advanced Content Security/Base Templates/ACS Rule Selection/Advanced Content Security/Rules
+path: /sitecore/templates/Advanced Content Security/Base Templates/Advanced Content Security - Read Rules/Advanced Content Security/Read Rules
 parent: {6BE35549-45BD-4753-81EF-3AF007795486}
-name: Rules
+name: Read Rules
 master: {00000000-0000-0000-0000-000000000000}
 template: {455A3E98-A627-4B40-8035-E683A0331AC7}
 templatekey: Template field
@@ -33,8 +33,15 @@ content-length: 3
 ----version----
 language: en
 version: 1
-revision: c0918e17-b593-4fa4-a22a-4c43b130a5ac
+revision: 1d67b6d0-f4fa-4d51-aece-fdba72b66911
 
+----field----
+field: {19A69332-A23E-4E70-8D16-B2640CB24CC8}
+name: Title
+key: title
+content-length: 62
+
+Read Rules - Access is allowed if the following rules are true
 ----field----
 field: {25BED78C-4957-4165-998A-CA1B52F67497}
 name: __Created
@@ -48,14 +55,14 @@ name: __Revision
 key: __revision
 content-length: 36
 
-c0918e17-b593-4fa4-a22a-4c43b130a5ac
+1d67b6d0-f4fa-4d51-aece-fdba72b66911
 ----field----
 field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
 name: __Updated
 key: __updated
 content-length: 16
 
-20160325T094006Z
+20160325T123519Z
 ----field----
 field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
 name: __Updated by

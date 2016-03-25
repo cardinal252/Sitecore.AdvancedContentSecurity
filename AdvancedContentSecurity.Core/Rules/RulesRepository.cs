@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
-using ContentSecurity.Core.Rules;
 using Sitecore.Data.Items;
 using Sitecore.Rules;
 
@@ -66,7 +65,7 @@ namespace AdvancedContentSecurity.Core.Rules
             }
 
             return !String.IsNullOrWhiteSpace(item[fieldName]) 
-                ? RuleFactory.GetRules<T>(item, fieldName).Rules 
+                ? RuleFactory.GetRules<T>(item.Fields[fieldName]).Rules 
                 : Enumerable.Empty<Rule<T>>();
         }
 
@@ -74,12 +73,12 @@ namespace AdvancedContentSecurity.Core.Rules
         {
             RuleStack stack = new RuleStack();
             rule.Condition.Evaluate(ruleContext, stack);
-            if (ruleContext.IsAborted || (stack.Count == 0))
+            if (ruleContext.IsAborted || stack.Count == 0)
             {
-                return (bool)stack.Pop();
+                return true;
             }
 
-            return true;
+            return (bool)stack.Pop();
         }
     }
 }

@@ -1,22 +1,35 @@
-﻿using AdvancedContentSecurity.Core.ItemSecurity;
-using Sitecore;
-using Sitecore.Data;
-using Sitecore.Diagnostics;
+﻿using System.Diagnostics.CodeAnalysis;
+using AdvancedContentSecurity.Core.Configuration;
+using AdvancedContentSecurity.Core.ContentSecurity;
+using AdvancedContentSecurity.Core.Context;
+using AdvancedContentSecurity.Core.ItemSecurity;
+using AdvancedContentSecurity.Core.Logging;
+using AdvancedContentSecurity.Core.Rules;
 
 namespace AdvancedContentSecurity.Core.Pipelines.RenderLayout
 {
     public class SecurityCheck : Sitecore.Pipelines.RenderLayout.SecurityCheck
     {
-        protected IItemSecurityManager ItemSecurityManager { get; private set; }
+        protected ISitecoreContextWrapper SitecoreContextWrapper { get; private set; }
 
-        public SecurityCheck() : this(new ItemSecurityManager(new ItemSecurityRepository()))
+        protected IContentSecurityManager ContentSecurityManager { get; private set; }
+        public ITracerRepository TracerRepository { get; private set; }
+
+        [ExcludeFromCodeCoverage] // Parameterless constructor
+        public SecurityCheck() : this(
+            new SitecoreContextWrapper(), 
+            AdvancedContentSecurityConfiguration.ConfigurationFactory.GetContentSecurityManager(),
+            AdvancedContentSecurityConfiguration.ConfigurationFactory.TracerRepository 
+            )
         {
 
         }
 
-        public SecurityCheck(IItemSecurityManager itemSecurityManager)
+        public SecurityCheck(ISitecoreContextWrapper sitecoreContextWrapper, IContentSecurityManager contentSecurityManager, ITracerRepository tracerRepository)
         {
-            ItemSecurityManager = itemSecurityManager;
+            SitecoreContextWrapper = sitecoreContextWrapper;
+            ContentSecurityManager = contentSecurityManager;
+            TracerRepository = tracerRepository;
         }
 
         protected override bool HasAccess()
@@ -24,29 +37,16 @@ namespace AdvancedContentSecurity.Core.Pipelines.RenderLayout
             bool originalValue = base.HasAccess();
             if (!originalValue)
             {
-                Tracer.Info("Access is denied as the current user \"" + Context.GetUserName() + "\" has no read access to current item.");
+                TracerRepository.Info("Access is denied as the current user \"" + SitecoreContextWrapper.GetCurrentUserName() + "\" has no read access to current item.");
                 return false;
             }
 
-            if (Context.Item == null)
+            if (SitecoreContextWrapper.GetContextItem() != null)
             {
-                Tracer.Info("Access is granted as there is no current item.");
-                return true;
+                return ContentSecurityManager.IsRuleReadAccessAllowed(SitecoreContextWrapper.GetContextItem(), SitecoreContextWrapper.GetCurrentUser());
             }
 
-            if (!ItemSecurityManager.HasPermission(ContentSecurityConstants.AccessRights.RulesRead, Context.Item, Context.User))
-            {
-                // true is the original value
-                return true;
-            }
-
-            // todo: evaluate rules
-            if (Context.Item.ID == new ID("{536FDC66-788F-4641-90BF-F05F1F8B5D4F}"))
-            {
-                return false;
-            }
-            
-            // true is the original value
+            TracerRepository.Info("Access is granted as there is no current item.");
             return true;
         }
     }

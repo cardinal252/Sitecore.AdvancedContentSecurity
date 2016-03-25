@@ -2,7 +2,7 @@
 using Sitecore.Data.Items;
 using Sitecore.Rules;
 
-namespace ContentSecurity.Core.Rules
+namespace AdvancedContentSecurity.Core.Rules
 {
     public interface IRulesRepository
     {

@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using AdvancedContentSecurity.Core.Rules;
-using ContentSecurity.Core.Rules;
 using FluentAssertions;
 using NSubstitute;
 using NUnit.Framework;

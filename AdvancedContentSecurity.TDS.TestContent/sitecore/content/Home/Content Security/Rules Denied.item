@@ -1,0 +1,72 @@
+----item----
+version: 1
+id: {536FDC66-788F-4641-90BF-F05F1F8B5D4F}
+database: master
+path: /sitecore/content/Home/Content Security/Rules Denied
+parent: {40D93C17-CC8C-4C6E-9F04-B6BD383C77DA}
+name: Rules Denied
+master: {00000000-0000-0000-0000-000000000000}
+template: {49E2B6F3-2526-422B-AFF9-2992086CAE79}
+templatekey: Read General Test Page
+
+----field----
+field: {DEC8D2D5-E3CF-48B6-A653-8E69E2716641}
+name: __Security
+key: __security
+content-length: 52
+
+au|extranet\Anonymous|pe|+item:rules|pd|+item:rules|
+----version----
+language: en
+version: 1
+revision: 24f24a65-f430-4923-b7de-1cbb296729f4
+
+----field----
+field: {BEDB2B49-7E01-4596-A9E7-1DBA6210E5E8}
+name: Read Rules
+key: read rules
+content-length: 38
+
+{CDC50028-1526-4FC1-A1BC-48917F5D9D94}
+----field----
+field: {8ED0A498-5A79-4CC5-B162-2D7024511481}
+name: Title
+key: title
+content-length: 17
+
+Rules Denied Page
+----field----
+field: {5B4D11C9-E335-4CFA-867A-24B855006CDD}
+name: Text
+key: text
+content-length: 4
+
+Text
+----field----
+field: {25BED78C-4957-4165-998A-CA1B52F67497}
+name: __Created
+key: __created
+content-length: 16
+
+20160325T093659Z
+----field----
+field: {8CDC337E-A112-42FB-BBB4-4143751E123F}
+name: __Revision
+key: __revision
+content-length: 36
+
+24f24a65-f430-4923-b7de-1cbb296729f4
+----field----
+field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
+name: __Updated
+key: __updated
+content-length: 16
+
+20160325T130426Z
+----field----
+field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
+name: __Updated by
+key: __updated by
+content-length: 14
+
+sitecore\admin

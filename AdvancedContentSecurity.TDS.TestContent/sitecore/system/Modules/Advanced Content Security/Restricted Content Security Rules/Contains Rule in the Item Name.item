@@ -1,40 +1,32 @@
 ----item----
 version: 1
-id: {73E718E6-70B4-4426-B94F-F705AB078448}
+id: {FF38582B-4C91-4024-9A58-BC8F6578B5F7}
 database: master
-path: /sitecore/layout/Devices/Restricted
-parent: {E18F4BC6-46A2-4842-898B-B6613733F06F}
-name: Restricted
+path: /sitecore/system/Modules/Advanced Content Security/Restricted Content Security Rules/Contains Rule in the Item Name
+parent: {2EF38F0B-5467-40FF-B1B9-856E0F4CC34D}
+name: Contains Rule in the Item Name
 master: {00000000-0000-0000-0000-000000000000}
-template: {B6F7EEB4-E8D7-476F-8936-5ACE6A76F20B}
-templatekey: Device
+template: {6CBBB75A-7AC2-4C7D-9582-C0D18821667D}
+templatekey: Content Security Rule Condition
 
-----field----
-field: {160B90C2-4011-4E89-9C5E-C617DDFBC8C7}
-name: Fallback device
-key: fallback device
-content-length: 38
-
-{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}
-----field----
-field: {06D5295C-ED2F-4A54-9BF2-26228D113318}
-name: __Icon
-key: __icon
-content-length: 22
-
-Network/32x32/key1.png
 ----version----
 language: en
 version: 1
-revision: fa197659-ab71-415d-a85a-35f6b1d9c135
+revision: 560c3248-0306-4ac9-9037-211835a729fc
 
 ----field----
-field: {BF584A6D-BF22-49E2-AB10-63F5AE88C7BD}
+field: {0B69DBCB-0620-4A7D-8803-A597CF5BD702}
 name: Rule
 key: rule
-content-length: 11
+content-length: 293
 
-<ruleset />
+<ruleset>
+  <rule uid="{3C6D0C0A-51F4-47F1-BE00-8622AA8D7358}">
+    <conditions>
+      <condition id="{944E1C68-CAF1-468E-87DC-CE85D168D961}" uid="D2178D736F764B7FAEA0DEAE955943C3" operatorid="{2E67477C-440C-4BCA-A358-3D29AED89F47}" value="Rule" />
+    </conditions>
+  </rule>
+</ruleset>
 ----field----
 field: {52807595-0F8F-4B20-8D2A-CB71D28C6103}
 name: __Owner
@@ -48,7 +40,7 @@ name: __Created
 key: __created
 content-length: 16
 
-20160323T155139Z
+20160324T154039Z
 ----field----
 field: {5DD74568-4D4B-44C1-B513-0AF5F4CDA34F}
 name: __Created by
@@ -62,14 +54,14 @@ name: __Revision
 key: __revision
 content-length: 36
 
-fa197659-ab71-415d-a85a-35f6b1d9c135
+560c3248-0306-4ac9-9037-211835a729fc
 ----field----
 field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
 name: __Updated
 key: __updated
 content-length: 16
 
-20160325T131349Z
+20160325T125409Z
 ----field----
 field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
 name: __Updated by
