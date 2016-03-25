@@ -2,7 +2,7 @@
 version: 1
 id: {58EE9367-B599-4BF2-ADBA-64386C4104CB}
 database: master
-path: /sitecore/templates/Advanced Content Security/Content Security Settings/Rules Information/Restricted Rule
+path: /sitecore/templates/Advanced Content Security/Settings/Content Security Settings/Rules Information/Restricted Rule
 parent: {573498A3-6D97-47DE-870A-846ADDCA1763}
 name: Restricted Rule
 master: {00000000-0000-0000-0000-000000000000}

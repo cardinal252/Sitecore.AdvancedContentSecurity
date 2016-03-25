@@ -2,7 +2,7 @@
 version: 1
 id: {2F7913CC-4ACD-4C85-B025-FF8A67F27BE6}
 database: master
-path: /sitecore/templates/Advanced Content Security/Content Security Settings/Rules Information/Initialisation Rule
+path: /sitecore/templates/Advanced Content Security/Settings/Content Security Settings/Rules Information/Initialisation Rule
 parent: {573498A3-6D97-47DE-870A-846ADDCA1763}
 name: Initialisation Rule
 master: {00000000-0000-0000-0000-000000000000}

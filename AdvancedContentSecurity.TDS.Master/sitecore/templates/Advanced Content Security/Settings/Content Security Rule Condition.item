@@ -1,10 +1,10 @@
 ----item----
 version: 1
-id: {4C623B1C-5ACB-4A9B-939C-B47309098FB0}
+id: {6CBBB75A-7AC2-4C7D-9582-C0D18821667D}
 database: master
-path: /sitecore/templates/Advanced Content Security/Content Security Settings
-parent: {8BFAAE19-7AB6-42BC-B250-92F4155C464B}
-name: Content Security Settings
+path: /sitecore/templates/Advanced Content Security/Settings/Content Security Rule Condition
+parent: {EC1D0FA5-567F-4F98-BC8D-B752AF1B9E01}
+name: Content Security Rule Condition
 master: {00000000-0000-0000-0000-000000000000}
 template: {AB86861A-6030-46C5-B394-E8F99E8B87DB}
 templatekey: Template
@@ -17,23 +17,16 @@ content-length: 38
 
 {1930BBEB-7805-471A-A3BE-4858AC7CF696}
 ----field----
-field: {F7D48A55-2158-4F02-9356-756654404F73}
-name: __Standard values
-key: __standard values
-content-length: 0
-
-
-----field----
 field: {06D5295C-ED2F-4A54-9BF2-26228D113318}
 name: __Icon
 key: __icon
-content-length: 38
+content-length: 29
 
-Applications/32x32/gear_connection.png
+Applications/32x32/check2.png
 ----version----
 language: en
 version: 1
-revision: c5450bba-4708-4ae1-a5f1-619ec7d492ff
+revision: 6512f4d0-cde7-4723-a54a-f2a1da0ba8dd
 
 ----field----
 field: {25BED78C-4957-4165-998A-CA1B52F67497}
@@ -41,7 +34,7 @@ name: __Created
 key: __created
 content-length: 16
 
-20160323T162813Z
+20160324T152818Z
 ----field----
 field: {5DD74568-4D4B-44C1-B513-0AF5F4CDA34F}
 name: __Created by
@@ -55,14 +48,14 @@ name: __Revision
 key: __revision
 content-length: 36
 
-c5450bba-4708-4ae1-a5f1-619ec7d492ff
+6512f4d0-cde7-4723-a54a-f2a1da0ba8dd
 ----field----
 field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
 name: __Updated
 key: __updated
 content-length: 16
 
-20160323T163431Z
+20160325T094302Z
 ----field----
 field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
 name: __Updated by

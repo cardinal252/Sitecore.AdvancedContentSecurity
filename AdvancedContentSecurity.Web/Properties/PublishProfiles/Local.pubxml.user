@@ -10,22 +10,25 @@ by editing this MSBuild file. In order to learn more about this please visit htt
   </PropertyGroup>
   <ItemGroup>
     <File Include="App_Config/Include/AdvancedContentSecurity/AdvancedContentSecurity.AccessRights.config">
-      <publishTime>03/23/2016 22:49:36</publishTime>
+      <publishTime>03/25/2016 09:54:14</publishTime>
+    </File>
+    <File Include="App_Config/Include/AdvancedContentSecurity/AdvancedContentSecurity.ItemReadSecurity.config">
+      <publishTime>03/25/2016 10:03:31</publishTime>
     </File>
     <File Include="App_Config/Include/ContentSecurity/ContentSecurity.AccessRights.config">
       <publishTime>03/23/2016 22:49:36</publishTime>
     </File>
     <File Include="bin/AdvancedContentSecurity.Core.dll">
-      <publishTime>03/24/2016 15:02:03</publishTime>
+      <publishTime>03/25/2016 10:20:38</publishTime>
     </File>
     <File Include="bin/AdvancedContentSecurity.Core.pdb">
-      <publishTime>03/24/2016 15:02:03</publishTime>
+      <publishTime>03/25/2016 10:20:38</publishTime>
     </File>
     <File Include="bin/AdvancedContentSecurity.Web.dll">
-      <publishTime>03/24/2016 15:02:03</publishTime>
+      <publishTime>03/25/2016 10:20:39</publishTime>
     </File>
     <File Include="bin/AdvancedContentSecurity.Web.pdb">
-      <publishTime>03/24/2016 15:02:03</publishTime>
+      <publishTime>03/25/2016 10:20:39</publishTime>
     </File>
     <File Include="bin/ContentSecurity.Core.dll">
       <publishTime>03/23/2016 22:56:40</publishTime>

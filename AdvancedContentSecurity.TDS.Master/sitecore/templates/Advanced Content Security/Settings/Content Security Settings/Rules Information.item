@@ -2,7 +2,7 @@
 version: 1
 id: {573498A3-6D97-47DE-870A-846ADDCA1763}
 database: master
-path: /sitecore/templates/Advanced Content Security/Content Security Settings/Rules Information
+path: /sitecore/templates/Advanced Content Security/Settings/Content Security Settings/Rules Information
 parent: {4C623B1C-5ACB-4A9B-939C-B47309098FB0}
 name: Rules Information
 master: {00000000-0000-0000-0000-000000000000}

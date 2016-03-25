@@ -63,6 +63,9 @@
     <Content Include="App_Config\Include\AdvancedContentSecurity\AdvancedContentSecurity.AccessRights.config">
       <SubType>Designer</SubType>
     </Content>
+    <Content Include="App_Config\Include\AdvancedContentSecurity\AdvancedContentSecurity.ItemReadSecurity.config">
+      <SubType>Designer</SubType>
+    </Content>
     <None Include="Properties\PublishProfiles\Local.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
