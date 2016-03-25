@@ -13,3 +13,4 @@ Lib/*.lic
 AdvancedContentSecurity.sln.DotSettings.user
 AdvancedContentSecurity.Web/bin/
 AdvancedContentSecurity.Web/AdvancedContentSecurity.Web.csproj.user
+AdvancedContentSecurity.Web/Properties/PublishProfiles/Local.pubxml.user

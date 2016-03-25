@@ -59,9 +59,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ItemSecurityManagerTestFixture.cs" />
+    <Compile Include="ContentSecurity\ContentSecurityManagerTestFixture.cs" />
+    <Compile Include="Rules\Conditions\IsRestrictedConditionTestFixture.cs" />
+    <Compile Include="ItemSecurity\ItemSecurityManagerTestFixture.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RulesManagerTestFixture.cs" />
+    <Compile Include="Rules\RulesManagerTestFixture.cs" />
     <Compile Include="TestUtilities.cs" />
   </ItemGroup>
   <ItemGroup>

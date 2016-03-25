@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using AdvancedContentSecurity.Core.Rules;
 using FluentAssertions;
 using NSubstitute;
@@ -7,8 +8,9 @@ using NUnit.Framework;
 using Sitecore.Data.Items;
 using Sitecore.Rules;
 
-namespace AdvancedContentSecurity.UnitTests
+namespace AdvancedContentSecurity.UnitTests.Rules
 {
+    [ExcludeFromCodeCoverage] // Unit test fixture
     [TestFixture]
     public class RulesManagerTestFixture
     {

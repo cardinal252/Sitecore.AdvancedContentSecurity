@@ -53,6 +53,8 @@
     <Compile Include="ItemSecurity\IItemSecurityManager.cs" />
     <Compile Include="ItemSecurity\IItemSecurityRepository.cs" />
     <Compile Include="ItemSecurity\ItemSecurityManager.cs" />
+    <Compile Include="Items\IItemManager.cs" />
+    <Compile Include="Items\ItemManager.cs" />
     <Compile Include="Logging\ITracerRepository.cs" />
     <Compile Include="Logging\TracerRepository.cs" />
     <Compile Include="Pipelines\RenderLayout\SecurityCheck.cs" />

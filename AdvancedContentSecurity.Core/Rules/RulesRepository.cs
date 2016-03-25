@@ -7,6 +7,7 @@ using Sitecore.Rules;
 
 namespace AdvancedContentSecurity.Core.Rules
 {
+    [ExcludeFromCodeCoverage] // Repository class - integration tests only
     public class RulesRepository : IRulesRepository
     {
         public bool Evaluate<T>(T ruleContext, IEnumerable<Rule<T>> rulesList) where T : RuleContext

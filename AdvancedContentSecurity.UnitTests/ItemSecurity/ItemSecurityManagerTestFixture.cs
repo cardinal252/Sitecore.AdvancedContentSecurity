@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics.CodeAnalysis;
 using AdvancedContentSecurity.Core.ItemSecurity;
 using FluentAssertions;
 using NSubstitute;
@@ -7,8 +8,9 @@ using Sitecore.Data.Items;
 using Sitecore.Security.Accounts;
 using Sitecore.Security.Authentication;
 
-namespace AdvancedContentSecurity.UnitTests
+namespace AdvancedContentSecurity.UnitTests.ItemSecurity
 {
+    [ExcludeFromCodeCoverage] // Unit test fixture
     [TestFixture]
     public class ItemSecurityManagerTestFixture
     {

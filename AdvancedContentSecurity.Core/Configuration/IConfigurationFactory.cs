@@ -1,4 +1,5 @@
 ﻿using AdvancedContentSecurity.Core.ContentSecurity;
+using AdvancedContentSecurity.Core.Items;
 using AdvancedContentSecurity.Core.ItemSecurity;
 using AdvancedContentSecurity.Core.Logging;
 using AdvancedContentSecurity.Core.Rules;
@@ -14,6 +15,8 @@ namespace AdvancedContentSecurity.Core.Configuration
         IItemSecurityManager GetItemSecurityManager();
 
         IRulesManager GetRulesManager();
+
+        IItemManager GetItemManager();
     }
 
 }

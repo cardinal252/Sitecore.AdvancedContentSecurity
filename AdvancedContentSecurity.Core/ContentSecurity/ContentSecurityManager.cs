@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using AdvancedContentSecurity.Core.Items;
 using AdvancedContentSecurity.Core.ItemSecurity;
 using AdvancedContentSecurity.Core.Rules;
 using Sitecore.Data.Fields;
@@ -10,60 +12,41 @@ namespace AdvancedContentSecurity.Core.ContentSecurity
 {
     public class ContentSecurityManager : IContentSecurityManager
     {
-        public ContentSecurityManager(IItemSecurityManager itemSecurityManager, IRulesManager rulesManager)
+        public ContentSecurityManager(IItemSecurityManager itemSecurityManager, IRulesManager rulesManager, IItemManager itemManager)
         {
             ItemSecurityManager = itemSecurityManager;
             RulesManager = rulesManager;
+            ItemManager = itemManager;
         }
 
         protected IItemSecurityManager ItemSecurityManager { get; private set; }
 
         public IRulesManager RulesManager { get; private set; }
 
+        public IItemManager ItemManager { get; set; }
+
         public virtual bool IsRuleReadAccessAllowed(Item item, User user)
         {
-            if (item == null)
-            {
-                throw new ArgumentNullException(nameof(item));
-            }
+            const bool defaultValue = true;
 
-            if (user == null)
-            {
-                throw new ArgumentNullException(nameof(user));
-            }
+            ValidateItemAndUser(item, user);
+
 
             if (!ItemSecurityManager.HasPermission(ContentSecurityConstants.AccessRights.Rules, item, user) || 
-                String.IsNullOrEmpty(item[ContentSecurityConstants.FieldNames.ReadRules]) )
+                String.IsNullOrEmpty(ItemManager.GetFieldValue(item, ContentSecurityConstants.FieldNames.ReadRules)))
             {
-                return true;
+                return defaultValue;
             }
 
-            MultilistField rulesMultilistField = new MultilistField(item.Fields[ContentSecurityConstants.FieldNames.ReadRules]);
+            IEnumerable<Item> rulesItems = ItemManager.GetItemsFromMultilist(item, ContentSecurityConstants.FieldNames.ReadRules);
 
-            foreach (Item rulesItem in rulesMultilistField.GetItems())
-            {
-                if (RulesManager.EvaluateRulesFromField<RuleContext>(ContentSecurityConstants.FieldNames.Rule, rulesItem, item))
-                {
-                    continue;
-                }
-
-                return false;
-            }
-
-            return true;
+            return EvaluateRules(item, rulesItems, defaultValue);
         }
 
         public virtual bool IsRestricted(Item item, User user)
         {
-            if (item == null)
-            {
-                throw new ArgumentNullException(nameof(item));
-            }
-
-            if (user == null)
-            {
-                throw new ArgumentNullException(nameof(user));
-            }
+            const bool defaultValue = false;
+            ValidateItemAndUser(item, user);
 
             if (ItemSecurityManager.HasPermission(ContentSecurityConstants.AccessRights.Restricted, item, user))
             {
@@ -71,24 +54,47 @@ namespace AdvancedContentSecurity.Core.ContentSecurity
             }
 
             if (!ItemSecurityManager.HasPermission(ContentSecurityConstants.AccessRights.Rules, item, user) ||
-                String.IsNullOrEmpty(item[ContentSecurityConstants.FieldNames.RestrictedRules]))
+                String.IsNullOrEmpty(ItemManager.GetFieldValue(item, ContentSecurityConstants.FieldNames.RestrictedRules)))
             {
-                return false;
+                return defaultValue;
             }
 
-            MultilistField rulesMultilistField = new MultilistField(item.Fields[ContentSecurityConstants.FieldNames.RestrictedRules]);
+            IEnumerable<Item> rulesItems = ItemManager.GetItemsFromMultilist(item, ContentSecurityConstants.FieldNames.RestrictedRules);
 
-            foreach (Item rulesItem in rulesMultilistField.GetItems())
+            return EvaluateRules(item, rulesItems, defaultValue);
+        }
+
+        private bool EvaluateRules(Item item, IEnumerable<Item> rulesItems, bool defaultValue)
+        {
+            if (rulesItems == null)
+            {
+                return defaultValue;
+            }
+
+            foreach (Item rulesItem in rulesItems)
             {
                 if (!RulesManager.EvaluateRulesFromField<RuleContext>(ContentSecurityConstants.FieldNames.Rule, rulesItem, item))
                 {
                     continue;
                 }
 
-                return true;
+                return !defaultValue;
             }
 
-            return false;
+            return defaultValue;
+        }
+
+        private static void ValidateItemAndUser(Item item, User user)
+        {
+            if (item == null)
+            {
+                throw new ArgumentNullException(nameof(item));
+            }
+
+            if (user == null)
+            {
+                throw new ArgumentNullException(nameof(user));
+            }
         }
     }
 }

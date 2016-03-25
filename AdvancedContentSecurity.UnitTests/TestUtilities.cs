@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics.CodeAnalysis;
 using System.Runtime.Serialization;
 using Sitecore.Data;
 using Sitecore.Data.Items;
@@ -6,6 +7,7 @@ using Sitecore.Globalization;
 
 namespace AdvancedContentSecurity.UnitTests
 {
+    [ExcludeFromCodeCoverage] // Unit test fixture
     public static class TestUtilities
     {
         public static Item GetTestItem(Guid itemId, Guid templateId, Guid branchId, string itemName)

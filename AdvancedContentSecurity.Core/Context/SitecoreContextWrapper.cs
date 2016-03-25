@@ -1,8 +1,10 @@
-﻿using Sitecore.Data.Items;
+﻿using System.Diagnostics.CodeAnalysis;
+using Sitecore.Data.Items;
 using Sitecore.Security.Accounts;
 
 namespace AdvancedContentSecurity.Core.Context
 {
+    [ExcludeFromCodeCoverage] // Simple Wrapping Class for the Sitecore context
     public class SitecoreContextWrapper : ISitecoreContextWrapper
     {
         public User GetCurrentUser()
