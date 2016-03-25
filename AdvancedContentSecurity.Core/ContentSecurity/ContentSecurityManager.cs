@@ -40,7 +40,7 @@ namespace AdvancedContentSecurity.Core.ContentSecurity
 
             IEnumerable<Item> rulesItems = ItemManager.GetItemsFromMultilist(item, ContentSecurityConstants.FieldNames.ReadRules);
 
-            return EvaluateRules(item, rulesItems, defaultValue);
+            return EvaluateRules(item, rulesItems);
         }
 
         public virtual bool IsRestricted(Item item, User user)
@@ -61,27 +61,27 @@ namespace AdvancedContentSecurity.Core.ContentSecurity
 
             IEnumerable<Item> rulesItems = ItemManager.GetItemsFromMultilist(item, ContentSecurityConstants.FieldNames.RestrictedRules);
 
-            return EvaluateRules(item, rulesItems, defaultValue);
+            return EvaluateRules(item, rulesItems);
         }
 
-        private bool EvaluateRules(Item item, IEnumerable<Item> rulesItems, bool defaultValue)
+        private bool EvaluateRules(Item item, IEnumerable<Item> rulesItems)
         {
             if (rulesItems == null)
             {
-                return defaultValue;
+                return true;
             }
 
             foreach (Item rulesItem in rulesItems)
             {
-                if (!RulesManager.EvaluateRulesFromField<RuleContext>(ContentSecurityConstants.FieldNames.Rule, rulesItem, item))
+                if (RulesManager.EvaluateRulesFromField<RuleContext>(ContentSecurityConstants.FieldNames.Rule, rulesItem, item))
                 {
                     continue;
                 }
 
-                return !defaultValue;
+                return false;
             }
 
-            return defaultValue;
+            return true;
         }
 
         private static void ValidateItemAndUser(Item item, User user)
