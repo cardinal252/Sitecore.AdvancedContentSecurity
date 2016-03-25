@@ -226,7 +226,7 @@ namespace AdvancedContentSecurity.UnitTests.ContentSecurity
         }
 
         [Test]
-        public void IsRestricted_when_null_rules_list_returns_false()
+        public void IsRestricted_when_null_rules_list_returns_true()
         {
             // Arrange
             ContentSecurityManagerTestHarness testHarness = new ContentSecurityManagerTestHarness();
@@ -254,11 +254,11 @@ namespace AdvancedContentSecurity.UnitTests.ContentSecurity
             var result = testHarness.ContentSecurityManager.IsRestricted(item, user);
 
             // Assert
-            result.Should().BeFalse();
+            result.Should().BeTrue();
         }
 
         [Test]
-        public void IsRuleReadAccessAllowed_when_restricted_rule_evaluates_true_returns_true()
+        public void IsRuleReadAccessAllowed_when_restricted_rule_evaluates_true_returns_false()
         {
             // Arrange
             ContentSecurityManagerTestHarness testHarness = new ContentSecurityManagerTestHarness();
@@ -290,11 +290,11 @@ namespace AdvancedContentSecurity.UnitTests.ContentSecurity
             var result = testHarness.ContentSecurityManager.IsRuleReadAccessAllowed(item, user);
 
             // Assert
-            result.Should().BeTrue();
+            result.Should().BeFalse();
         }
 
         [Test]
-        public void IsRuleReadAccessAllowed_when_restricted_rule_evaluates_false_returns_false()
+        public void IsRuleReadAccessAllowed_when_restricted_rule_evaluates_false_returns_true()
         {
             // Arrange
             ContentSecurityManagerTestHarness testHarness = new ContentSecurityManagerTestHarness();
@@ -326,7 +326,7 @@ namespace AdvancedContentSecurity.UnitTests.ContentSecurity
             var result = testHarness.ContentSecurityManager.IsRuleReadAccessAllowed(item, user);
 
             // Assert
-            result.Should().BeFalse();
+            result.Should().BeTrue();
         }
 
         [Test]
