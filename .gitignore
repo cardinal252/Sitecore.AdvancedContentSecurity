@@ -6,11 +6,13 @@ AdvancedContentSecurity.TDS.TestContent/obj/
 AdvancedContentSecurity.UnitTests/bin/
 AdvancedContentSecurity.UnitTests/obj/
 AdvancedContentSecurity.Web/obj/
-Lib/*.dll
-Lib/*.xml
-Lib/Social/*.dll
+Lib/sitecore/*.dll
+Lib/sitecore/*.xml
+Lib/sitecore/Social/*.dll
 Lib/*.lic
 AdvancedContentSecurity.sln.DotSettings.user
 AdvancedContentSecurity.Web/bin/
 AdvancedContentSecurity.Web/AdvancedContentSecurity.Web.csproj.user
 AdvancedContentSecurity.Web/Properties/PublishProfiles/Local.pubxml.user
+AdvancedContentSecurity.TDS.Master/bin/
+Lib/Sitecore/*.lic

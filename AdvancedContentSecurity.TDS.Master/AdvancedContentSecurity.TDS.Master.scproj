@@ -6,9 +6,9 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>1dfd0598-626a-42d8-8b13-8e3d1c4c3c5a</ProjectGuid>
     <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
-    <SourceWebPhysicalPath>..\ContentSecurity.Web</SourceWebPhysicalPath>
-    <SourceWebProject>{98cde66e-8367-4375-9679-e8ed4d728e6a}|ContentSecurity.Web\ContentSecurity.Web.csproj</SourceWebProject>
-    <SourceWebVirtualPath>/ContentSecurity.Web.csproj</SourceWebVirtualPath>
+    <SourceWebPhysicalPath>..\AdvancedContentSecurity.Web</SourceWebPhysicalPath>
+    <SourceWebProject>{98cde66e-8367-4375-9679-e8ed4d728e6a}|AdvancedContentSecurity.Web\AdvancedContentSecurity.Web.csproj</SourceWebProject>
+    <SourceWebVirtualPath>/AdvancedContentSecurity.Web.csproj</SourceWebVirtualPath>
     <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
     <EnableUpdateable>true</EnableUpdateable>
     <UseMerge>true</UseMerge>
@@ -32,6 +32,19 @@
     <DisableFileDeployment>False</DisableFileDeployment>
     <SitecoreDeployFolder>C:\Runtime\sandbox.local\Website</SitecoreDeployFolder>
     <SitecoreAccessGuid>459374d2-0fbf-44d4-a254-1df31720492e</SitecoreAccessGuid>
+    <PackageName>AdvancedContentSecurity</PackageName>
+    <GeneratePackage>False</GeneratePackage>
+    <SeperateFilesAndItems>False</SeperateFilesAndItems>
+    <PackageExcludeCode>False</PackageExcludeCode>
+    <AddDateTimeToPackageName>False</AddDateTimeToPackageName>
+    <PackageAuthor>Nathanael Mann</PackageAuthor>
+    <PackagePublisher>
+    </PackagePublisher>
+    <PackageReadme>
+    </PackageReadme>
+    <PackageVersion>0.9</PackageVersion>
+    <SitecoreAssemblyPath>
+    </SitecoreAssemblyPath>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
     <DebugSymbols>false</DebugSymbols>
@@ -45,6 +58,18 @@
     </SitecoreWebUrl>
     <SitecoreAccessGuid>
     </SitecoreAccessGuid>
+    <PackageName>AdvancedContentSecurity</PackageName>
+    <GeneratePackage>True</GeneratePackage>
+    <SeperateFilesAndItems>False</SeperateFilesAndItems>
+    <PackageExcludeCode>False</PackageExcludeCode>
+    <AddDateTimeToPackageName>False</AddDateTimeToPackageName>
+    <PackageAuthor>Nathanael Mann</PackageAuthor>
+    <PackagePublisher>
+    </PackagePublisher>
+    <PackageReadme>
+    </PackageReadme>
+    <PackageVersion>0.5</PackageVersion>
+    <SitecoreAssemblyPath>..\Lib\Sitecore</SitecoreAssemblyPath>
   </PropertyGroup>
   <ItemGroup>
     <AssemblyAttributes Include="AssemblyFileVersion">
@@ -55,9 +80,9 @@
     </AssemblyAttributes>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ContentSecurity.Web\ContentSecurity.Web.csproj">
+    <ProjectReference Include="..\AdvancedContentSecurity.Web\AdvancedContentSecurity.Web.csproj">
       <Project>{98cde66e-8367-4375-9679-e8ed4d728e6a}</Project>
-      <Name>ContentSecurity.Web</Name>
+      <Name>AdvancedContentSecurity.Web</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
@@ -241,6 +266,33 @@
       <ChildItemSynchronization>KeepAllChildrenSynchronized</ChildItemSynchronization>
       <ItemDeployment>AlwaysUpdate</ItemDeployment>
     </SitecoreItem>
+  </ItemGroup>
+  <ItemGroup>
+    <ExcludedAssemblies Include="%2a.dll.config" />
+    <ExcludedAssemblies Include="%2a.lic" />
+    <ExcludedAssemblies Include="%2a.xml" />
+    <ExcludedAssemblies Include="Antlr3.Runtime.dll" />
+    <ExcludedAssemblies Include="ComponentArt.Web.UI.dll" />
+    <ExcludedAssemblies Include="CsQuery.dll" />
+    <ExcludedAssemblies Include="CustomFields.AccountSelector.dll" />
+    <ExcludedAssemblies Include="DotNetOpenAuth.dll" />
+    <ExcludedAssemblies Include="EcmaScript.NET.dll" />
+    <ExcludedAssemblies Include="Facebook.dll" />
+    <ExcludedAssemblies Include="FacebookAPI.dll" />
+    <ExcludedAssemblies Include="Google.Apis.Authentication.OAuth2.dll" />
+    <ExcludedAssemblies Include="Google.Apis.dll" />
+    <ExcludedAssemblies Include="Google.Apis.Plus.v1.dll" />
+    <ExcludedAssemblies Include="Hammock.ClientProfile.dll" />
+    <ExcludedAssemblies Include="HtmlAgilityPack.dll" />
+    <ExcludedAssemblies Include="ITHit.WebDAV.Server.dll" />
+    <ExcludedAssemblies Include="Lucene.net.%2a" />
+    <ExcludedAssemblies Include="MongoDB.%2a" />
+    <ExcludedAssemblies Include="mvp.xml.dll" />
+    <ExcludedAssemblies Include="Newtonsoft.Json.dll" />
+    <ExcludedAssemblies Include="RadEditor.Net2.dll" />
+    <ExcludedAssemblies Include="Sitecore.%2a.dll" />
+    <ExcludedAssemblies Include="Sitecore.Kernel.dll" />
+    <ExcludedAssemblies Include="Telerik.Web.UI.dll" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\HedgehogDevelopment\SitecoreProject\v9.0\HedgehogDevelopment.SitecoreProject.targets" />
 </Project>
