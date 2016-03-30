@@ -44,6 +44,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Testing\AnonymousRepository.cs" />
     <Compile Include="Configuration\AdvancedContentSecurityConfiguration.cs" />
     <Compile Include="Configuration\ConfigurationFactory.cs" />
     <Compile Include="Configuration\IConfigurationFactory.cs" />
@@ -68,6 +69,7 @@
     <Compile Include="Rules\RulesRepository.cs" />
     <Compile Include="Context\ISitecoreContextWrapper.cs" />
     <Compile Include="Context\SitecoreContextWrapper.cs" />
+    <Compile Include="Testing\IAnonymousRepository.cs" />
     <Compile Include="UserSecurity\IUserSecurityManager.cs" />
     <Compile Include="UserSecurity\UserSecurityManager.cs" />
   </ItemGroup>

@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using Sitecore.Data;
 using Sitecore.Data.Fields;
 using Sitecore.Data.Items;
 
 namespace AdvancedContentSecurity.Core.Items
 {
+    [ExcludeFromCodeCoverage] // Wraps Sitecore Functionality - Integration testable only
     public class ItemRepository : IItemRepository
     {
         public string GetFieldValue(Item item, string fieldName)

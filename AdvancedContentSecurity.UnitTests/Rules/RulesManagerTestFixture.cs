@@ -195,6 +195,26 @@ namespace AdvancedContentSecurity.UnitTests.Rules
         }
 
         [Test]
+        public void ExecuteRulesFromField_no_evaluation_item_for_correct_data_returns_true()
+        {
+            // Arrange
+            RulesManagerTestHarness testHarness = new RulesManagerTestHarness();
+
+            Guid itemId = Guid.NewGuid();
+            Guid templateId = Guid.NewGuid();
+            Guid branchId = Guid.Empty;
+            string itemName = "fred";
+
+            Item item = TestUtilities.GetTestItem(itemId, templateId, branchId, itemName);
+
+            // Act
+            bool result = testHarness.RulesManager.ExecuteRulesFromField<RuleContext>("fieldName", item);
+
+            // Assert
+            result.Should().BeTrue();
+        }
+
+        [Test]
         public void ExecuteRulesFromField_with_supplied_rule_context_for_correct_data_returns_true()
         {
             // Arrange
@@ -255,6 +275,27 @@ namespace AdvancedContentSecurity.UnitTests.Rules
 
             // Act
             bool result = testHarness.RulesManager.ExecuteRulesFromField<RuleContext>("fieldName", rulesItem, itemToEvaluate);
+
+            // Assert
+            result.Should().BeFalse();
+        }
+
+        [Test]
+        public void ExecuteRulesFromField_with_no_evaluation_item_for_correct_data_returns_false()
+        {
+            // Arrange
+            RulesManagerTestHarness testHarness = new RulesManagerTestHarness();
+            testHarness.RulesRepository.When(x => x.Execute(Arg.Any<RuleContext>(), Arg.Any<IEnumerable<Rule<RuleContext>>>())).Throw<Exception>();
+
+            Guid itemId = Guid.NewGuid();
+            Guid templateId = Guid.NewGuid();
+            Guid branchId = Guid.Empty;
+            string itemName = "fred";
+
+            Item rulesItem = TestUtilities.GetTestItem(itemId, templateId, branchId, itemName);
+
+            // Act
+            bool result = testHarness.RulesManager.ExecuteRulesFromField<RuleContext>("fieldName", rulesItem);
 
             // Assert
             result.Should().BeFalse();
