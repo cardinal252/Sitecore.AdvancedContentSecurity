@@ -44,6 +44,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Rules\Actions\RemoveCurrentUserFromRole.cs" />
     <Compile Include="Rules\Actions\AddCurrentUserToRole.cs" />
     <Compile Include="Testing\AnonymousRepository.cs" />
     <Compile Include="Configuration\AdvancedContentSecurityConfiguration.cs" />
