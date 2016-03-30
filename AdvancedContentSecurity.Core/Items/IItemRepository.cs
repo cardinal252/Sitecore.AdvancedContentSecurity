@@ -13,9 +13,5 @@ namespace AdvancedContentSecurity.Core.Items
         Item GetItemFromContextDatabase(ID itemId);
 
         Item GetItemFromContentDatabase(ID itemId);
-
-        void SetContextDevice(Item item);
-
-        void SetContextDevice(DeviceItem deviceItem);
     }
 }

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics.CodeAnalysis;
 using AdvancedContentSecurity.Core.ContentSecurity;
 using AdvancedContentSecurity.Core.Items;
 using AdvancedContentSecurity.Core.ItemSecurity;
@@ -10,6 +11,7 @@ namespace AdvancedContentSecurity.Core.Configuration
 {
     public class ConfigurationFactory : IConfigurationFactory
     {
+        [ExcludeFromCodeCoverage] // Wrapped constructor
         public ConfigurationFactory() : this(
                 () => new ItemSecurityManager(new ItemSecurityRepository()),
                 () => new RulesManager(new RulesRepository()),

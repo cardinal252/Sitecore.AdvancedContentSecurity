@@ -35,17 +35,5 @@ namespace AdvancedContentSecurity.Core.Items
         {
             return Sitecore.Context.ContentDatabase.GetItem(itemId);
         }
-
-        public void SetContextDevice(DeviceItem deviceItem)
-        {
-            Sitecore.Context.Device = deviceItem;
-        }
-
-        public void SetContextDevice(Item item)
-        {
-            DeviceItem deviceItem = new DeviceItem(item);
-            SetContextDevice(deviceItem);
-            
-        }
     }
 }

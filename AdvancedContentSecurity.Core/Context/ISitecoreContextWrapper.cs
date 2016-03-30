@@ -19,5 +19,9 @@ namespace AdvancedContentSecurity.Core.Context
         bool HasContentDatabase();
 
         bool HasContextItem();
+
+        void SetContextDevice(Item item);
+
+        void SetContextDevice(DeviceItem deviceItem);
     }
 }

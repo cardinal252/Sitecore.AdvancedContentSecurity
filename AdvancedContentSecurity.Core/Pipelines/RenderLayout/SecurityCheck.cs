@@ -13,18 +13,16 @@ namespace AdvancedContentSecurity.Core.Pipelines.RenderLayout
         public SecurityCheck() : this(
             new SitecoreContextWrapper(), 
             AdvancedContentSecurityConfiguration.ConfigurationFactory.GetContentSecurityManager(),
-            AdvancedContentSecurityConfiguration.ConfigurationFactory.TracerRepository,
-            new AnonymousRepository())
+            AdvancedContentSecurityConfiguration.ConfigurationFactory.TracerRepository)
         {
 
         }
 
-        public SecurityCheck(ISitecoreContextWrapper sitecoreContextWrapper, IContentSecurityManager contentSecurityManager, ITracerRepository tracerRepository, IAnonymousRepository anonymousRepository)
+        public SecurityCheck(ISitecoreContextWrapper sitecoreContextWrapper, IContentSecurityManager contentSecurityManager, ITracerRepository tracerRepository)
         {
             SitecoreContextWrapper = sitecoreContextWrapper;
             ContentSecurityManager = contentSecurityManager;
             TracerRepository = tracerRepository;
-            AnonymousRepository = anonymousRepository;
         }
 
         protected ISitecoreContextWrapper SitecoreContextWrapper { get; private set; }
@@ -33,17 +31,14 @@ namespace AdvancedContentSecurity.Core.Pipelines.RenderLayout
 
         public ITracerRepository TracerRepository { get; private set; }
 
-        public IAnonymousRepository AnonymousRepository { get; private set; }
-
         [ExcludeFromCodeCoverage] // overrides sitecores
         protected override bool HasAccess()
         {
-            return CanAccess();
+            return CanAccess(base.HasAccess());
         }
 
-        internal virtual bool CanAccess()
+        internal virtual bool CanAccess(bool originalValue)
         {
-            bool originalValue = AnonymousRepository.GetValue(() => base.HasAccess());
             if (!originalValue)
             {
                 TracerRepository.Info("Access is denied as the current user \"" + SitecoreContextWrapper.GetCurrentUserName() + "\" has no read access to current item.");

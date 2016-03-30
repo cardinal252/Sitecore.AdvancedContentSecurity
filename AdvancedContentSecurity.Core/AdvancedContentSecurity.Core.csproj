@@ -60,7 +60,7 @@
     <Compile Include="Logging\TracerRepository.cs" />
     <Compile Include="Pipelines\RenderLayout\SecurityCheck.cs" />
     <Compile Include="ItemSecurity\ItemSecurityRepository.cs" />
-    <Compile Include="Pipelines\HttpRequestBegin\RestrictedDeviceResolver.cs" />
+    <Compile Include="Pipelines\HttpRequestBegin\RestrictedDeviceProcessor.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Rules\IRulesManager.cs" />
     <Compile Include="Rules\IRulesRepository.cs" />

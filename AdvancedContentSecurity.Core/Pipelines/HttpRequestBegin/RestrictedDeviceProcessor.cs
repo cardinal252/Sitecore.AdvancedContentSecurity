@@ -1,18 +1,18 @@
-﻿using AdvancedContentSecurity.Core.Configuration;
+﻿using System.Diagnostics.CodeAnalysis;
+using AdvancedContentSecurity.Core.Configuration;
 using AdvancedContentSecurity.Core.ContentSecurity;
 using AdvancedContentSecurity.Core.Context;
 using AdvancedContentSecurity.Core.Items;
 using AdvancedContentSecurity.Core.Logging;
 using Sitecore.Data;
-using Sitecore.Data.Items;
 using Sitecore.Diagnostics;
 using Sitecore.Pipelines.HttpRequest;
-using Sitecore.Sites;
 
 namespace AdvancedContentSecurity.Core.Pipelines.HttpRequestBegin
 {
     public class RestrictedDeviceProcessor : HttpRequestProcessor
     {
+        [ExcludeFromCodeCoverage] // Allows parameterless construction
         public RestrictedDeviceProcessor()
             : this(
                   new SitecoreContextWrapper(), 
@@ -37,10 +37,16 @@ namespace AdvancedContentSecurity.Core.Pipelines.HttpRequestBegin
 
         public ITracerRepository TracerRepository { get; private set; }
 
+        [ExcludeFromCodeCoverage] // Delegates to testable method
         public override void Process(HttpRequestArgs args)
         {
             Assert.ArgumentNotNull(args, "args");
 
+            SetDevice();
+        }
+
+        internal virtual void SetDevice()
+        {
             if (SitecoreContextWrapper.GetContextItem() == null || SitecoreContextWrapper.GetSiteName().Equals("sitecore"))
             {
                 return;
@@ -48,22 +54,21 @@ namespace AdvancedContentSecurity.Core.Pipelines.HttpRequestBegin
 
             using (new ProfileSection("Resolve device."))
             {
-                if (SitecoreContextWrapper.HasContextDatabase())
+                if (!SitecoreContextWrapper.HasContextDatabase())
                 {
                     TracerRepository.Warning("No database in device resolver.", "Site is \"" + SitecoreContextWrapper.GetSiteName() + "\".");
+                    return;
                 }
-                else
-                {
-                    if (!ContentSecurityManager.IsRestricted(SitecoreContextWrapper.GetContextItem(), SitecoreContextWrapper.GetCurrentUser()))
-                    {
-                        return;
-                    }
 
-                    var item = ItemRepository.GetItemFromContextDatabase(new ID(ContentSecurityConstants.Ids.Devices.RestrictedDeviceId));
-                    if (item != null)
-                    {
-                        ItemRepository.SetContextDevice(item);
-                    }
+                if (!ContentSecurityManager.IsRestricted(SitecoreContextWrapper.GetContextItem(), SitecoreContextWrapper.GetCurrentUser()))
+                {
+                    return;
+                }
+
+                var item = ItemRepository.GetItemFromContextDatabase(new ID(ContentSecurityConstants.Ids.Devices.RestrictedDeviceId));
+                if (item != null)
+                {
+                    SitecoreContextWrapper.SetContextDevice(item);
                 }
             }
         }

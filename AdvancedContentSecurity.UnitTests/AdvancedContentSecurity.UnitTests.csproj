@@ -60,7 +60,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Configuration\ConfigurationFactoryTestFixture.cs" />
     <Compile Include="ContentSecurity\ContentSecurityManagerTestFixture.cs" />
+    <Compile Include="Pipelines\RestrictedDeviceResolverTestFixture.cs" />
     <Compile Include="Pipelines\SecurityCheckTestFixture.cs" />
     <Compile Include="Rules\Conditions\IsRestrictedConditionTestFixture.cs" />
     <Compile Include="ItemSecurity\ItemSecurityManagerTestFixture.cs" />
@@ -81,6 +83,7 @@
     </None>
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

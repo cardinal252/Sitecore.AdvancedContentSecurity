@@ -1,12 +1,8 @@
-﻿using AdvancedContentSecurity.Core.ContentSecurity;
-using AdvancedContentSecurity.Core.Items;
-using AdvancedContentSecurity.Core.ItemSecurity;
-using AdvancedContentSecurity.Core.Logging;
-using AdvancedContentSecurity.Core.Rules;
-using AdvancedContentSecurity.Core.UserSecurity;
+﻿using System.Diagnostics.CodeAnalysis;
 
 namespace AdvancedContentSecurity.Core.Configuration
 {
+    [ExcludeFromCodeCoverage] // Simple singleton implementation
     public static class AdvancedContentSecurityConfiguration
     {
         static AdvancedContentSecurityConfiguration()

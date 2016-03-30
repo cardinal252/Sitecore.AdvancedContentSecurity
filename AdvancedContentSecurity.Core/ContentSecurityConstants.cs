@@ -1,4 +1,5 @@
-﻿using Sitecore;
+﻿using System;
+using Sitecore;
 using Sitecore.Syndication;
 
 namespace AdvancedContentSecurity.Core
@@ -49,7 +50,8 @@ namespace AdvancedContentSecurity.Core
                 {
                     get
                     {
-                        return Sitecore.Configuration.Settings.GetSetting("AdvancedContentSecurity.ConfigurationItem");
+                        string result = Sitecore.Configuration.Settings.GetSetting("AdvancedContentSecurity.ConfigurationItem");
+                        return !String.IsNullOrEmpty(result) ? result : "{8B9F6F25-56F2-4A93-8C97-A0B63F54567A}";
                     }
                 }
             }
@@ -60,7 +62,8 @@ namespace AdvancedContentSecurity.Core
                 {
                     get
                     {
-                        return Sitecore.Configuration.Settings.GetSetting("AdvancedContentSecurity.RestrictedDeviceId");
+                        string result = Sitecore.Configuration.Settings.GetSetting("AdvancedContentSecurity.RestrictedDeviceId");
+                        return !String.IsNullOrEmpty(result) ? result : "{73E718E6-70B4-4426-B94F-F705AB078448}";
                     }
                 }
             }

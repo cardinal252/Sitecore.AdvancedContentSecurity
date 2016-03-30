@@ -21,10 +21,9 @@ namespace AdvancedContentSecurity.UnitTests.Pipelines
         {
             // Arrange
             var testHarness = new SecurityCheckTestHarness();
-            testHarness.AnonymousRepository.GetValue(Arg.Any<Func<bool>>()).Returns(false);
 
             // Act
-            var result = testHarness.SecurityCheck.CanAccess();
+            var result = testHarness.SecurityCheck.CanAccess(false);
 
             // Assert
             result.Should().BeFalse();
@@ -36,10 +35,9 @@ namespace AdvancedContentSecurity.UnitTests.Pipelines
         {
             // Arrange
             var testHarness = new SecurityCheckTestHarness();
-            testHarness.AnonymousRepository.GetValue(Arg.Any<Func<bool>>()).Returns(true);
 
             // Act
-            var result = testHarness.SecurityCheck.CanAccess();
+            var result = testHarness.SecurityCheck.CanAccess(true);
 
             // Assert
             result.Should().BeTrue();
@@ -51,7 +49,6 @@ namespace AdvancedContentSecurity.UnitTests.Pipelines
         {
             // Arrange
             var testHarness = new SecurityCheckTestHarness();
-            testHarness.AnonymousRepository.GetValue(Arg.Any<Func<bool>>()).Returns(true);
 
             Guid itemId = Guid.NewGuid();
             Guid templateId = Guid.NewGuid();
@@ -65,7 +62,7 @@ namespace AdvancedContentSecurity.UnitTests.Pipelines
             testHarness.ContentSecurityManager.IsRuleReadAccessAllowed(item, user).Returns(true);
 
             // Act
-            var result = testHarness.SecurityCheck.CanAccess();
+            var result = testHarness.SecurityCheck.CanAccess(true);
 
             // Assert
             result.Should().BeTrue();
@@ -77,7 +74,6 @@ namespace AdvancedContentSecurity.UnitTests.Pipelines
         {
             // Arrange
             var testHarness = new SecurityCheckTestHarness();
-            testHarness.AnonymousRepository.GetValue(Arg.Any<Func<bool>>()).Returns(true);
 
             Guid itemId = Guid.NewGuid();
             Guid templateId = Guid.NewGuid();
@@ -91,7 +87,7 @@ namespace AdvancedContentSecurity.UnitTests.Pipelines
             testHarness.ContentSecurityManager.IsRuleReadAccessAllowed(item, user).Returns(false);
 
             // Act
-            var result = testHarness.SecurityCheck.CanAccess();
+            var result = testHarness.SecurityCheck.CanAccess(true);
 
             // Assert
             result.Should().BeFalse();
@@ -105,14 +101,10 @@ namespace AdvancedContentSecurity.UnitTests.Pipelines
                 SitecoreContextWrapper = Substitute.For<ISitecoreContextWrapper>();
                 ContentSecurityManager = Substitute.For<IContentSecurityManager>();
                 TracerRepository = Substitute.For<ITracerRepository>();
-                AnonymousRepository = Substitute.For<IAnonymousRepository>();
-                SecurityCheck = new SecurityCheck(SitecoreContextWrapper, ContentSecurityManager, TracerRepository,
-                    AnonymousRepository);
+                SecurityCheck = new SecurityCheck(SitecoreContextWrapper, ContentSecurityManager, TracerRepository);
             }
 
             public IContentSecurityManager ContentSecurityManager { get; private set; }
-
-            public IAnonymousRepository AnonymousRepository { get; private set; }
 
             public ITracerRepository TracerRepository { get; private set; }
 
