@@ -1,21 +1,14 @@
 ----item----
 version: 1
-id: {AE3AE9D2-8D14-470F-85AC-96FF54BF210A}
+id: {E80C1BD5-A19E-451D-A104-5A7BC0E718C6}
 database: master
-path: /sitecore/system/Settings/Rules/Advanced Content Security - Initialisation/Tags/Default
-parent: {DDBFB3CB-F2EC-42BC-A96C-9BA67E1CB315}
-name: Default
-master: {BDC41FDD-A3AC-4B69-A0BA-471C425CB083}
-template: {854BA861-63EA-4A0C-8C7B-541E9A7EC4C1}
-templatekey: Tags Definition
-
-----field----
-field: {42F77151-098F-496A-94CF-590B7EDEEABE}
+path: /sitecore/system/Settings/Rules/Definitions/Elements/Advanced Content Security - User/Tags
+parent: {5EB5A14C-2078-43F6-847E-D453C677AFBB}
 name: Tags
-key: tags
-content-length: 77
+master: {9A72C539-DBF8-4DAD-96D3-A298FC04ADD6}
+template: {96C8E5DD-63C3-496B-A97C-A3E37E1DACBA}
+templatekey: Tags Definitions Folder
 
-{D75628D6-3FFE-4CD5-A654-2C767671BDEC}|{95611296-3E75-45C0-B7A4-69E69C8499AB}
 ----field----
 field: {F6D8A61C-2F84-4401-BD24-52D2068172BC}
 name: __Originator
@@ -26,7 +19,7 @@ content-length: 0
 ----version----
 language: en
 version: 1
-revision: 54feea4c-cfe2-488b-bb80-470bbcbddb08
+revision: 44b41552-0495-4ea6-987d-2e3cf1259b62
 
 ----field----
 field: {25BED78C-4957-4165-998A-CA1B52F67497}
@@ -34,21 +27,21 @@ name: __Created
 key: __created
 content-length: 16
 
-20160323T164342Z
+20160330T171219Z
 ----field----
 field: {8CDC337E-A112-42FB-BBB4-4143751E123F}
 name: __Revision
 key: __revision
 content-length: 36
 
-54feea4c-cfe2-488b-bb80-470bbcbddb08
+44b41552-0495-4ea6-987d-2e3cf1259b62
 ----field----
 field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
 name: __Updated
 key: __updated
 content-length: 16
 
-20160330T171457Z
+20160330T171219Z
 ----field----
 field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
 name: __Updated by

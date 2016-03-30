@@ -1,21 +1,14 @@
 ----item----
 version: 1
-id: {AE3AE9D2-8D14-470F-85AC-96FF54BF210A}
+id: {2867EB81-7374-46BD-9556-026BAEBAEB7D}
 database: master
-path: /sitecore/system/Settings/Rules/Advanced Content Security - Initialisation/Tags/Default
-parent: {DDBFB3CB-F2EC-42BC-A96C-9BA67E1CB315}
-name: Default
-master: {BDC41FDD-A3AC-4B69-A0BA-471C425CB083}
-template: {854BA861-63EA-4A0C-8C7B-541E9A7EC4C1}
-templatekey: Tags Definition
+path: /sitecore/system/Settings/Rules/Definitions/Tags/Advanced Content Security - User/Visibility
+parent: {D75628D6-3FFE-4CD5-A654-2C767671BDEC}
+name: Visibility
+master: {60E3E35B-CEF9-4AFA-9F89-204ED015CCB9}
+template: {AA91A868-02F2-41D3-8B78-1CAD91B4DCAE}
+templatekey: Visibility
 
-----field----
-field: {42F77151-098F-496A-94CF-590B7EDEEABE}
-name: Tags
-key: tags
-content-length: 77
-
-{D75628D6-3FFE-4CD5-A654-2C767671BDEC}|{95611296-3E75-45C0-B7A4-69E69C8499AB}
 ----field----
 field: {F6D8A61C-2F84-4401-BD24-52D2068172BC}
 name: __Originator
@@ -26,7 +19,7 @@ content-length: 0
 ----version----
 language: en
 version: 1
-revision: 54feea4c-cfe2-488b-bb80-470bbcbddb08
+revision: cf19b0f6-71a1-4e51-a537-596206790343
 
 ----field----
 field: {25BED78C-4957-4165-998A-CA1B52F67497}
@@ -34,21 +27,21 @@ name: __Created
 key: __created
 content-length: 16
 
-20160323T164342Z
+20160330T171408Z
 ----field----
 field: {8CDC337E-A112-42FB-BBB4-4143751E123F}
 name: __Revision
 key: __revision
 content-length: 36
 
-54feea4c-cfe2-488b-bb80-470bbcbddb08
+cf19b0f6-71a1-4e51-a537-596206790343
 ----field----
 field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
 name: __Updated
 key: __updated
 content-length: 16
 
-20160330T171457Z
+20160330T171408Z
 ----field----
 field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
 name: __Updated by
