@@ -1,4 +1,5 @@
-﻿using Sitecore.Data.Items;
+﻿using Sitecore.Data;
+using Sitecore.Data.Items;
 using Sitecore.Security.Accounts;
 
 namespace AdvancedContentSecurity.Core.Context
@@ -12,5 +13,11 @@ namespace AdvancedContentSecurity.Core.Context
         Item GetContextItem();
 
         string GetSiteName();
+
+        bool HasContextDatabase();
+
+        bool HasContentDatabase();
+
+        bool HasContextItem();
     }
 }

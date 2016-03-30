@@ -1,4 +1,5 @@
 ﻿using System.Diagnostics.CodeAnalysis;
+using Sitecore.Data;
 using Sitecore.Data.Items;
 using Sitecore.Security.Accounts;
 
@@ -25,6 +26,21 @@ namespace AdvancedContentSecurity.Core.Context
         public string GetSiteName()
         {
             return Sitecore.Context.Domain.Name;
+        }
+
+        public bool HasContextDatabase()
+        {
+            return Sitecore.Context.Database != null;
+        }
+
+        public bool HasContentDatabase()
+        {
+            return Sitecore.Context.ContentDatabase != null;
+        }
+
+        public bool HasContextItem()
+        {
+            return Sitecore.Context.Item != null;
         }
     }
 }

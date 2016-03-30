@@ -1,6 +1,7 @@
 ﻿using AdvancedContentSecurity.Core.Configuration;
 using AdvancedContentSecurity.Core.ContentSecurity;
 using AdvancedContentSecurity.Core.Context;
+using AdvancedContentSecurity.Core.Items;
 using AdvancedContentSecurity.Core.Logging;
 using Sitecore.Data;
 using Sitecore.Data.Items;
@@ -13,22 +14,28 @@ namespace AdvancedContentSecurity.Core.Pipelines.HttpRequestBegin
     public class RestrictedDeviceProcessor : HttpRequestProcessor
     {
         public RestrictedDeviceProcessor()
-            : this(new SitecoreContextWrapper(), AdvancedContentSecurityConfiguration.ConfigurationFactory.GetContentSecurityManager(), AdvancedContentSecurityConfiguration.ConfigurationFactory.TracerRepository)
+            : this(
+                  new SitecoreContextWrapper(), 
+                  AdvancedContentSecurityConfiguration.ConfigurationFactory.GetContentSecurityManager(),
+                  AdvancedContentSecurityConfiguration.ConfigurationFactory.GetItemRepository(),
+                  AdvancedContentSecurityConfiguration.ConfigurationFactory.TracerRepository)
         {
         }
 
-        public RestrictedDeviceProcessor(ISitecoreContextWrapper sitecoreContextWrapper, IContentSecurityManager contentSecurityManager, ITracerRepository tracerRepository)
+        public RestrictedDeviceProcessor(ISitecoreContextWrapper sitecoreContextWrapper, IContentSecurityManager contentSecurityManager, IItemRepository itemRepository, ITracerRepository tracerRepository)
         {
             SitecoreContextWrapper = sitecoreContextWrapper;
             ContentSecurityManager = contentSecurityManager;
+            ItemRepository = itemRepository;
             TracerRepository = tracerRepository;
         }
 
         protected ISitecoreContextWrapper SitecoreContextWrapper { get; private set; }
 
         public IContentSecurityManager ContentSecurityManager { get; private set; }
+        public IItemRepository ItemRepository { get; private set; }
 
-        public ITracerRepository TracerRepository { get; set; }
+        public ITracerRepository TracerRepository { get; private set; }
 
         public override void Process(HttpRequestArgs args)
         {
@@ -41,12 +48,9 @@ namespace AdvancedContentSecurity.Core.Pipelines.HttpRequestBegin
 
             using (new ProfileSection("Resolve device."))
             {
-                Database database = Sitecore.Context.Database;
-                SiteContext site = Sitecore.Context.Site;
-                string str = site != null ? site.Name : string.Empty;
-                if (database == null)
+                if (SitecoreContextWrapper.HasContextDatabase())
                 {
-                    TracerRepository.Warning("No database in device resolver.", "Site is \"" + str + "\".");
+                    TracerRepository.Warning("No database in device resolver.", "Site is \"" + SitecoreContextWrapper.GetSiteName() + "\".");
                 }
                 else
                 {
@@ -55,9 +59,11 @@ namespace AdvancedContentSecurity.Core.Pipelines.HttpRequestBegin
                         return;
                     }
 
-                    var item = database.GetItem(new ID(ContentSecurityConstants.Ids.Devices.RestrictedDeviceId));
-                    DeviceItem deviceItem = new DeviceItem(item);
-                    Sitecore.Context.Device = deviceItem;
+                    var item = ItemRepository.GetItemFromContextDatabase(new ID(ContentSecurityConstants.Ids.Devices.RestrictedDeviceId));
+                    if (item != null)
+                    {
+                        ItemRepository.SetContextDevice(item);
+                    }
                 }
             }
         }

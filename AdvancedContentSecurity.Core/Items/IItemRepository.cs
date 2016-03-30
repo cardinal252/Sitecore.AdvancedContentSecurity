@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using Sitecore.Data;
 using Sitecore.Data.Items;
 
@@ -14,5 +13,9 @@ namespace AdvancedContentSecurity.Core.Items
         Item GetItemFromContextDatabase(ID itemId);
 
         Item GetItemFromContentDatabase(ID itemId);
+
+        void SetContextDevice(Item item);
+
+        void SetContextDevice(DeviceItem deviceItem);
     }
 }
