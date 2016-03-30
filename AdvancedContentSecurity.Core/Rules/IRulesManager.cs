@@ -12,5 +12,7 @@ namespace AdvancedContentSecurity.Core.Rules
         bool ExecuteRulesFromField<T>(T ruleContext, string fieldName, Item rulesItem) where T : RuleContext;
 
         bool ExecuteRulesFromField<T>(string fieldName, Item rulesItem, Item itemToEvaluate) where T : RuleContext, new();
+
+        bool ExecuteRulesFromField<T>(string fieldName, Item rulesItem) where T : RuleContext, new();
     }
 }

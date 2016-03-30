@@ -34,10 +34,26 @@ namespace AdvancedContentSecurity.Core
             {
                 get { return "Rule"; }
             }
+
+            public static string UserInitialisationRule
+            {
+                get { return "User Initialisation Rule"; }
+            }
         }
 
         public static class Ids
         {
+            public static class Settings
+            {
+                public static string ConfigurationItemId
+                {
+                    get
+                    {
+                        return Sitecore.Configuration.Settings.GetSetting("AdvancedContentSecurity.ConfigurationItem");
+                    }
+                }
+            }
+
             public static class Devices
             {
                 public static string RestrictedDeviceId

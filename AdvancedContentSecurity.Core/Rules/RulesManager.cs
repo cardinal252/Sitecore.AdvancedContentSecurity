@@ -79,5 +79,10 @@ namespace AdvancedContentSecurity.Core.Rules
         {
             return ExecuteRulesFromField(new T { Item = itemToEvaluate}, fieldName, rulesItem);
         }
+
+        public bool ExecuteRulesFromField<T>(string fieldName, Item rulesItem) where T : RuleContext, new()
+        {
+            return ExecuteRulesFromField(new T(), fieldName, rulesItem);
+        }
     }
 }

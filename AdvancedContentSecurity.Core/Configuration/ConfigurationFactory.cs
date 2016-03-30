@@ -4,17 +4,30 @@ using AdvancedContentSecurity.Core.Items;
 using AdvancedContentSecurity.Core.ItemSecurity;
 using AdvancedContentSecurity.Core.Logging;
 using AdvancedContentSecurity.Core.Rules;
+using AdvancedContentSecurity.Core.UserSecurity;
 
 namespace AdvancedContentSecurity.Core.Configuration
 {
     public class ConfigurationFactory : IConfigurationFactory
     {
-        public ConfigurationFactory(Func<IItemSecurityManager> itemSecurityManagerFunc, Func<IRulesManager> rulesManagerFunc, Func<IItemManager> itemManagerFunc, Func<IConfigurationFactory, IContentSecurityManager> contentSecurityManagerFunc)
+        public ConfigurationFactory() : this(
+                () => new ItemSecurityManager(new ItemSecurityRepository()),
+                () => new RulesManager(new RulesRepository()),
+                () => new ItemRepository(),
+                x => new ContentSecurityManager(x.GetItemSecurityManager(), x.GetRulesManager(), x.GetItemRepository()),
+                x => new UserSecurityManager(x.GetRulesManager(), x.GetItemRepository()),
+                new TracerRepository())
+        {
+        }
+
+        public ConfigurationFactory(Func<IItemSecurityManager> itemSecurityManagerFunc, Func<IRulesManager> rulesManagerFunc, Func<IItemRepository> itemRepositoryFunc, Func<IConfigurationFactory, IContentSecurityManager> contentSecurityManagerFunc, Func<IConfigurationFactory, IUserSecurityManager> userSecurityManagerFunc, ITracerRepository tracerRepository)
         {
             ItemSecurityManagerFunc = itemSecurityManagerFunc;
             RulesManagerFunc = rulesManagerFunc;
             ContentSecurityManagerFunc = contentSecurityManagerFunc;
-            ItemManagerFunc = itemManagerFunc;
+            ItemRepositoryFunc = itemRepositoryFunc;
+            UserSecurityManagerFunc = userSecurityManagerFunc;
+            TracerRepository = tracerRepository;
         }
 
         protected Func<IItemSecurityManager> ItemSecurityManagerFunc { get; set; }
@@ -23,7 +36,9 @@ namespace AdvancedContentSecurity.Core.Configuration
 
         protected Func<IRulesManager> RulesManagerFunc { get; set; }
 
-        protected Func<IItemManager> ItemManagerFunc { get; set; } 
+        protected Func<IItemRepository> ItemRepositoryFunc { get; set; }
+
+        protected Func<IConfigurationFactory, IUserSecurityManager> UserSecurityManagerFunc { get; set; }
 
         public IContentSecurityManager GetContentSecurityManager()
         {
@@ -40,9 +55,14 @@ namespace AdvancedContentSecurity.Core.Configuration
             return RulesManagerFunc();
         }
 
-        public IItemManager GetItemManager()
+        public IItemRepository GetItemRepository()
         {
-            return ItemManagerFunc();
+            return ItemRepositoryFunc();
+        }
+
+        public IUserSecurityManager GetUserSecurityManager()
+        {
+            return UserSecurityManagerFunc(this);
         }
 
         public ITracerRepository TracerRepository { get; set; }

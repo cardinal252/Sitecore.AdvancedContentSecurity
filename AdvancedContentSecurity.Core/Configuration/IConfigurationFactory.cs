@@ -3,6 +3,7 @@ using AdvancedContentSecurity.Core.Items;
 using AdvancedContentSecurity.Core.ItemSecurity;
 using AdvancedContentSecurity.Core.Logging;
 using AdvancedContentSecurity.Core.Rules;
+using AdvancedContentSecurity.Core.UserSecurity;
 
 namespace AdvancedContentSecurity.Core.Configuration
 {
@@ -16,7 +17,9 @@ namespace AdvancedContentSecurity.Core.Configuration
 
         IRulesManager GetRulesManager();
 
-        IItemManager GetItemManager();
+        IItemRepository GetItemRepository();
+
+        IUserSecurityManager GetUserSecurityManager();
     }
 
 }

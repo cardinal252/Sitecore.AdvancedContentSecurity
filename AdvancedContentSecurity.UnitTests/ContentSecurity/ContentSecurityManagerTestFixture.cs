@@ -93,8 +93,8 @@ namespace AdvancedContentSecurity.UnitTests.ContentSecurity
 
             Item rulesItem = TestUtilities.GetTestItem(rulesItemId, templateId, branchId, itemName);
             List<Item> rulesItems = new List<Item> { rulesItem };
-            testHarness.ItemManager.GetItemsFromMultilist(item, ContentSecurityConstants.FieldNames.RestrictedRules).Returns(rulesItems);
-            testHarness.ItemManager.GetFieldValue(item, ContentSecurityConstants.FieldNames.RestrictedRules)
+            testHarness.ItemRepository.GetItemsFromMultilist(item, ContentSecurityConstants.FieldNames.RestrictedRules).Returns(rulesItems);
+            testHarness.ItemRepository.GetFieldValue(item, ContentSecurityConstants.FieldNames.RestrictedRules)
                 .Returns("qwerty");
 
             User user = AuthenticationManager.BuildVirtualUser("username", false);
@@ -132,8 +132,8 @@ namespace AdvancedContentSecurity.UnitTests.ContentSecurity
 
             Item rulesItem = TestUtilities.GetTestItem(rulesItemId, templateId, branchId, itemName);
             List<Item> rulesItems = new List<Item> { rulesItem };
-            testHarness.ItemManager.GetItemsFromMultilist(item, ContentSecurityConstants.FieldNames.RestrictedRules).Returns(rulesItems);
-            testHarness.ItemManager.GetFieldValue(item, ContentSecurityConstants.FieldNames.RestrictedRules)
+            testHarness.ItemRepository.GetItemsFromMultilist(item, ContentSecurityConstants.FieldNames.RestrictedRules).Returns(rulesItems);
+            testHarness.ItemRepository.GetFieldValue(item, ContentSecurityConstants.FieldNames.RestrictedRules)
                 .Returns("qwerty");
 
             User user = AuthenticationManager.BuildVirtualUser("username", false);
@@ -171,8 +171,8 @@ namespace AdvancedContentSecurity.UnitTests.ContentSecurity
 
             Item rulesItem = TestUtilities.GetTestItem(rulesItemId, templateId, branchId, itemName);
             List<Item> rulesItems = new List<Item> { rulesItem };
-            testHarness.ItemManager.GetItemsFromMultilist(item, ContentSecurityConstants.FieldNames.RestrictedRules).Returns(rulesItems);
-            testHarness.ItemManager.GetFieldValue(item, ContentSecurityConstants.FieldNames.RestrictedRules)
+            testHarness.ItemRepository.GetItemsFromMultilist(item, ContentSecurityConstants.FieldNames.RestrictedRules).Returns(rulesItems);
+            testHarness.ItemRepository.GetFieldValue(item, ContentSecurityConstants.FieldNames.RestrictedRules)
                 .Returns("qwerty");
 
             User user = AuthenticationManager.BuildVirtualUser("username", false);
@@ -206,8 +206,8 @@ namespace AdvancedContentSecurity.UnitTests.ContentSecurity
 
             Item rulesItem = TestUtilities.GetTestItem(rulesItemId, templateId, branchId, itemName);
             List<Item> rulesItems = new List<Item> { rulesItem };
-            testHarness.ItemManager.GetItemsFromMultilist(item, ContentSecurityConstants.FieldNames.RestrictedRules).Returns(rulesItems);
-            testHarness.ItemManager.GetFieldValue(item, ContentSecurityConstants.FieldNames.RestrictedRules)
+            testHarness.ItemRepository.GetItemsFromMultilist(item, ContentSecurityConstants.FieldNames.RestrictedRules).Returns(rulesItems);
+            testHarness.ItemRepository.GetFieldValue(item, ContentSecurityConstants.FieldNames.RestrictedRules)
                 .Returns(null as string);
 
             User user = AuthenticationManager.BuildVirtualUser("username", false);
@@ -238,8 +238,8 @@ namespace AdvancedContentSecurity.UnitTests.ContentSecurity
 
             Item item = TestUtilities.GetTestItem(itemId, templateId, branchId, itemName);
 
-            testHarness.ItemManager.GetItemsFromMultilist(item, ContentSecurityConstants.FieldNames.RestrictedRules).Returns(null as IEnumerable<Item>);
-            testHarness.ItemManager.GetFieldValue(item, ContentSecurityConstants.FieldNames.RestrictedRules)
+            testHarness.ItemRepository.GetItemsFromMultilist(item, ContentSecurityConstants.FieldNames.RestrictedRules).Returns(null as IEnumerable<Item>);
+            testHarness.ItemRepository.GetFieldValue(item, ContentSecurityConstants.FieldNames.RestrictedRules)
                 .Returns("qwerty");
 
             User user = AuthenticationManager.BuildVirtualUser("username", false);
@@ -274,8 +274,8 @@ namespace AdvancedContentSecurity.UnitTests.ContentSecurity
 
             Item rulesItem = TestUtilities.GetTestItem(rulesItemId, templateId, branchId, itemName);
             List<Item> rulesItems = new List<Item> { rulesItem };
-            testHarness.ItemManager.GetItemsFromMultilist(item, ContentSecurityConstants.FieldNames.ReadRules).Returns(rulesItems);
-            testHarness.ItemManager.GetFieldValue(item, ContentSecurityConstants.FieldNames.ReadRules)
+            testHarness.ItemRepository.GetItemsFromMultilist(item, ContentSecurityConstants.FieldNames.ReadRules).Returns(rulesItems);
+            testHarness.ItemRepository.GetFieldValue(item, ContentSecurityConstants.FieldNames.ReadRules)
                 .Returns("qwerty");
 
             User user = AuthenticationManager.BuildVirtualUser("username", false);
@@ -310,8 +310,8 @@ namespace AdvancedContentSecurity.UnitTests.ContentSecurity
 
             Item rulesItem = TestUtilities.GetTestItem(rulesItemId, templateId, branchId, itemName);
             List<Item> rulesItems = new List<Item> { rulesItem };
-            testHarness.ItemManager.GetItemsFromMultilist(item, ContentSecurityConstants.FieldNames.ReadRules).Returns(rulesItems);
-            testHarness.ItemManager.GetFieldValue(item, ContentSecurityConstants.FieldNames.ReadRules)
+            testHarness.ItemRepository.GetItemsFromMultilist(item, ContentSecurityConstants.FieldNames.ReadRules).Returns(rulesItems);
+            testHarness.ItemRepository.GetFieldValue(item, ContentSecurityConstants.FieldNames.ReadRules)
                 .Returns("qwerty");
 
             User user = AuthenticationManager.BuildVirtualUser("username", false);
@@ -346,8 +346,8 @@ namespace AdvancedContentSecurity.UnitTests.ContentSecurity
 
             Item rulesItem = TestUtilities.GetTestItem(rulesItemId, templateId, branchId, itemName);
             List<Item> rulesItems = new List<Item> { rulesItem };
-            testHarness.ItemManager.GetItemsFromMultilist(item, ContentSecurityConstants.FieldNames.ReadRules).Returns(rulesItems);
-            testHarness.ItemManager.GetFieldValue(item, ContentSecurityConstants.FieldNames.ReadRules)
+            testHarness.ItemRepository.GetItemsFromMultilist(item, ContentSecurityConstants.FieldNames.ReadRules).Returns(rulesItems);
+            testHarness.ItemRepository.GetFieldValue(item, ContentSecurityConstants.FieldNames.ReadRules)
                 .Returns(null as string);
 
             User user = AuthenticationManager.BuildVirtualUser("username", false);
@@ -372,7 +372,7 @@ namespace AdvancedContentSecurity.UnitTests.ContentSecurity
 
             Item item = TestUtilities.GetTestItem(itemId, templateId, branchId, itemName);
 
-            testHarness.ItemManager.GetFieldValue(item, ContentSecurityConstants.FieldNames.ReadRules)
+            testHarness.ItemRepository.GetFieldValue(item, ContentSecurityConstants.FieldNames.ReadRules)
                 .Returns("qwerty");
 
             User user = AuthenticationManager.BuildVirtualUser("username", false);
@@ -467,11 +467,11 @@ namespace AdvancedContentSecurity.UnitTests.ContentSecurity
             {
                 ItemSecurityManager = Substitute.For<IItemSecurityManager>();
                 RulesManager = Substitute.For<IRulesManager>();
-                ItemManager = Substitute.For<IItemManager>();
-                ContentSecurityManager = new ContentSecurityManager(ItemSecurityManager, RulesManager, ItemManager);
+                ItemRepository = Substitute.For<IItemRepository>();
+                ContentSecurityManager = new ContentSecurityManager(ItemSecurityManager, RulesManager, ItemRepository);
             }
 
-            public IItemManager ItemManager { get; private set; }
+            public IItemRepository ItemRepository { get; private set; }
 
             public IRulesManager RulesManager { get; private set; }
 

@@ -53,8 +53,8 @@
     <Compile Include="ItemSecurity\IItemSecurityManager.cs" />
     <Compile Include="ItemSecurity\IItemSecurityRepository.cs" />
     <Compile Include="ItemSecurity\ItemSecurityManager.cs" />
-    <Compile Include="Items\IItemManager.cs" />
-    <Compile Include="Items\ItemManager.cs" />
+    <Compile Include="Items\IItemRepository.cs" />
+    <Compile Include="Items\ItemRepository.cs" />
     <Compile Include="Logging\ITracerRepository.cs" />
     <Compile Include="Logging\TracerRepository.cs" />
     <Compile Include="Pipelines\RenderLayout\SecurityCheck.cs" />
@@ -68,6 +68,8 @@
     <Compile Include="Rules\RulesRepository.cs" />
     <Compile Include="Context\ISitecoreContextWrapper.cs" />
     <Compile Include="Context\SitecoreContextWrapper.cs" />
+    <Compile Include="UserSecurity\IUserSecurityManager.cs" />
+    <Compile Include="UserSecurity\UserSecurityManager.cs" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

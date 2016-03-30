@@ -3,6 +3,7 @@ using AdvancedContentSecurity.Core.Items;
 using AdvancedContentSecurity.Core.ItemSecurity;
 using AdvancedContentSecurity.Core.Logging;
 using AdvancedContentSecurity.Core.Rules;
+using AdvancedContentSecurity.Core.UserSecurity;
 
 namespace AdvancedContentSecurity.Core.Configuration
 {
@@ -10,14 +11,7 @@ namespace AdvancedContentSecurity.Core.Configuration
     {
         static AdvancedContentSecurityConfiguration()
         {
-            ConfigurationFactory = new ConfigurationFactory(
-                () => new ItemSecurityManager(new ItemSecurityRepository()), 
-                () => new RulesManager(new RulesRepository()), 
-                () => new ItemManager(), 
-                x => new ContentSecurityManager(x.GetItemSecurityManager(), x.GetRulesManager(), x.GetItemManager()))
-            {
-                TracerRepository = new TracerRepository()
-            };
+            ConfigurationFactory = new ConfigurationFactory();
         }
 
         public static IConfigurationFactory ConfigurationFactory { get; set; }

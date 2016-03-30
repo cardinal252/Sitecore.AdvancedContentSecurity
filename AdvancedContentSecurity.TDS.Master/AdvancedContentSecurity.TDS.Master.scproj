@@ -258,11 +258,7 @@
       <ChildItemSynchronization>KeepAllChildrenSynchronized</ChildItemSynchronization>
       <ItemDeployment>AlwaysUpdate</ItemDeployment>
     </SitecoreItem>
-    <SitecoreItem Include="sitecore\templates\Advanced Content Security\Settings\Content Security Settings\Rules Information\Initialisation Rule.item">
-      <ChildItemSynchronization>KeepAllChildrenSynchronized</ChildItemSynchronization>
-      <ItemDeployment>AlwaysUpdate</ItemDeployment>
-    </SitecoreItem>
-    <SitecoreItem Include="sitecore\templates\Advanced Content Security\Settings\Content Security Settings\Rules Information\Restricted Rule.item">
+    <SitecoreItem Include="sitecore\templates\Advanced Content Security\Settings\Content Security Settings\Rules Information\User Initialisation Rule.item">
       <ChildItemSynchronization>KeepAllChildrenSynchronized</ChildItemSynchronization>
       <ItemDeployment>AlwaysUpdate</ItemDeployment>
     </SitecoreItem>

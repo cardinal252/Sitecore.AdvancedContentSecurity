@@ -12,18 +12,18 @@ namespace AdvancedContentSecurity.Core.ContentSecurity
 {
     public class ContentSecurityManager : IContentSecurityManager
     {
-        public ContentSecurityManager(IItemSecurityManager itemSecurityManager, IRulesManager rulesManager, IItemManager itemManager)
+        public ContentSecurityManager(IItemSecurityManager itemSecurityManager, IRulesManager rulesManager, IItemRepository itemRepository)
         {
             ItemSecurityManager = itemSecurityManager;
             RulesManager = rulesManager;
-            ItemManager = itemManager;
+            ItemRepository = itemRepository;
         }
 
         protected IItemSecurityManager ItemSecurityManager { get; private set; }
 
         public IRulesManager RulesManager { get; private set; }
 
-        public IItemManager ItemManager { get; set; }
+        public IItemRepository ItemRepository { get; set; }
 
         public virtual bool IsRuleReadAccessAllowed(Item item, User user)
         {
@@ -33,12 +33,12 @@ namespace AdvancedContentSecurity.Core.ContentSecurity
 
 
             if (!ItemSecurityManager.HasPermission(ContentSecurityConstants.AccessRights.Rules, item, user) || 
-                String.IsNullOrEmpty(ItemManager.GetFieldValue(item, ContentSecurityConstants.FieldNames.ReadRules)))
+                String.IsNullOrEmpty(ItemRepository.GetFieldValue(item, ContentSecurityConstants.FieldNames.ReadRules)))
             {
                 return defaultValue;
             }
 
-            IEnumerable<Item> rulesItems = ItemManager.GetItemsFromMultilist(item, ContentSecurityConstants.FieldNames.ReadRules);
+            IEnumerable<Item> rulesItems = ItemRepository.GetItemsFromMultilist(item, ContentSecurityConstants.FieldNames.ReadRules);
 
             return EvaluateRules(item, rulesItems);
         }
@@ -54,12 +54,12 @@ namespace AdvancedContentSecurity.Core.ContentSecurity
             }
 
             if (!ItemSecurityManager.HasPermission(ContentSecurityConstants.AccessRights.Rules, item, user) ||
-                String.IsNullOrEmpty(ItemManager.GetFieldValue(item, ContentSecurityConstants.FieldNames.RestrictedRules)))
+                String.IsNullOrEmpty(ItemRepository.GetFieldValue(item, ContentSecurityConstants.FieldNames.RestrictedRules)))
             {
                 return defaultValue;
             }
 
-            IEnumerable<Item> rulesItems = ItemManager.GetItemsFromMultilist(item, ContentSecurityConstants.FieldNames.RestrictedRules);
+            IEnumerable<Item> rulesItems = ItemRepository.GetItemsFromMultilist(item, ContentSecurityConstants.FieldNames.RestrictedRules);
 
             return EvaluateRules(item, rulesItems);
         }
