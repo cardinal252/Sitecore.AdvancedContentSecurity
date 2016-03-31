@@ -14,10 +14,16 @@ namespace AdvancedContentSecurity.Core.Rules.Conditions
         protected ISitecoreContextWrapper SitecoreContextWrapper { get; private set; }
 
         [ExcludeFromCodeCoverage] // Parameterless constructor
-        public IsRestrictedCondition() : this(AdvancedContentSecurityConfiguration.ConfigurationFactory.GetContentSecurityManager(), new SitecoreContextWrapper())
+        public IsRestrictedCondition() : this(ConfigurationFactory.Default)
         {
             
         }
+
+        [ExcludeFromCodeCoverage] // Chained constructor
+        public IsRestrictedCondition(IConfigurationFactory configurationFactory) : this(configurationFactory.GetContentSecurityManager(), configurationFactory.GetSitecoreContextWrapper())
+        {
+            
+        } 
 
         public IsRestrictedCondition(IContentSecurityManager contentSecurityManager, ISitecoreContextWrapper sitecoreContextWrapper)
         {

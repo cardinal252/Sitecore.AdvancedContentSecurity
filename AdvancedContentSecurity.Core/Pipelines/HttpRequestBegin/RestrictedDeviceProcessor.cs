@@ -14,12 +14,18 @@ namespace AdvancedContentSecurity.Core.Pipelines.HttpRequestBegin
     {
         [ExcludeFromCodeCoverage] // Allows parameterless construction
         public RestrictedDeviceProcessor()
-            : this(
-                  new SitecoreContextWrapper(), 
-                  AdvancedContentSecurityConfiguration.ConfigurationFactory.GetContentSecurityManager(),
-                  AdvancedContentSecurityConfiguration.ConfigurationFactory.GetItemRepository(),
-                  AdvancedContentSecurityConfiguration.ConfigurationFactory.TracerRepository)
+            : this(ConfigurationFactory.Default)
         {
+        }
+
+        [ExcludeFromCodeCoverage] // Configuration factory chained constructor
+        public RestrictedDeviceProcessor(IConfigurationFactory configurationFactory) : this(
+            configurationFactory.GetSitecoreContextWrapper(), 
+            configurationFactory.GetContentSecurityManager(), 
+            configurationFactory.GetItemRepository(), 
+            configurationFactory.TracerRepository)
+        {
+            
         }
 
         public RestrictedDeviceProcessor(ISitecoreContextWrapper sitecoreContextWrapper, IContentSecurityManager contentSecurityManager, IItemRepository itemRepository, ITracerRepository tracerRepository)

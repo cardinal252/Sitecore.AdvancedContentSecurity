@@ -17,6 +17,14 @@ namespace AdvancedContentSecurity.Core
             {
                 get { return "item:rules"; }
             }
+
+            public static string Read
+            {
+                get
+                {
+                    return "item:read";
+                }
+            }
         }
 
         public static class FieldNames 

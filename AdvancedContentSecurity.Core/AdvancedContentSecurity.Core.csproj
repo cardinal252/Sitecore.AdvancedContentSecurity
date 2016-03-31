@@ -47,7 +47,6 @@
     <Compile Include="Rules\Actions\RemoveCurrentUserFromRole.cs" />
     <Compile Include="Rules\Actions\AddCurrentUserToRole.cs" />
     <Compile Include="Testing\AnonymousRepository.cs" />
-    <Compile Include="Configuration\AdvancedContentSecurityConfiguration.cs" />
     <Compile Include="Configuration\ConfigurationFactory.cs" />
     <Compile Include="Configuration\IConfigurationFactory.cs" />
     <Compile Include="ContentSecurityConstants.cs" />

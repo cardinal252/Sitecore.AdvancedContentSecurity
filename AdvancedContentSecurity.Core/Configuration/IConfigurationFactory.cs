@@ -1,4 +1,5 @@
 ﻿using AdvancedContentSecurity.Core.ContentSecurity;
+using AdvancedContentSecurity.Core.Context;
 using AdvancedContentSecurity.Core.Items;
 using AdvancedContentSecurity.Core.ItemSecurity;
 using AdvancedContentSecurity.Core.Logging;
@@ -20,6 +21,8 @@ namespace AdvancedContentSecurity.Core.Configuration
         IItemRepository GetItemRepository();
 
         IUserSecurityManager GetUserSecurityManager();
+
+        ISitecoreContextWrapper GetSitecoreContextWrapper();
     }
 
 }

@@ -1,5 +1,6 @@
 ﻿using AdvancedContentSecurity.Core.Configuration;
 using AdvancedContentSecurity.Core.ContentSecurity;
+using AdvancedContentSecurity.Core.Context;
 using AdvancedContentSecurity.Core.Items;
 using AdvancedContentSecurity.Core.ItemSecurity;
 using AdvancedContentSecurity.Core.Logging;
@@ -23,6 +24,7 @@ namespace AdvancedContentSecurity.UnitTests.Configuration
             IItemRepository itemRepository = Substitute.For<IItemRepository>();
             IContentSecurityManager contentSecurityManager = Substitute.For<IContentSecurityManager>();
             IUserSecurityManager userSecurityManager = Substitute.For<IUserSecurityManager>();
+            ISitecoreContextWrapper sitecoreContextWrapper = Substitute.For<ISitecoreContextWrapper>();
             ITracerRepository tracerRepository = new TracerRepository();
 
             // Act
@@ -33,7 +35,8 @@ namespace AdvancedContentSecurity.UnitTests.Configuration
                 () => itemRepository,
                 x => contentSecurityManager,
                 x => userSecurityManager,
-                tracerRepository);
+                tracerRepository,
+                () => sitecoreContextWrapper);
 
             // Assert
             configurationFactory.GetItemSecurityManager().Should().Be(itemSecurityManager);
@@ -42,6 +45,7 @@ namespace AdvancedContentSecurity.UnitTests.Configuration
             configurationFactory.GetContentSecurityManager().Should().Be(contentSecurityManager);
             configurationFactory.GetUserSecurityManager().Should().Be(userSecurityManager);
             configurationFactory.TracerRepository.Should().Be(tracerRepository);
+            configurationFactory.GetSitecoreContextWrapper().Should().Be(sitecoreContextWrapper);
         }
     }
 }

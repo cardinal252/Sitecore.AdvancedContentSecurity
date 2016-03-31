@@ -3,19 +3,21 @@ using AdvancedContentSecurity.Core.Configuration;
 using AdvancedContentSecurity.Core.ContentSecurity;
 using AdvancedContentSecurity.Core.Context;
 using AdvancedContentSecurity.Core.Logging;
-using AdvancedContentSecurity.Core.Testing;
 
 namespace AdvancedContentSecurity.Core.Pipelines.RenderLayout
 {
     public class SecurityCheck : Sitecore.Pipelines.RenderLayout.SecurityCheck
     {
         [ExcludeFromCodeCoverage] // Parameterless constructor
-        public SecurityCheck() : this(
-            new SitecoreContextWrapper(), 
-            AdvancedContentSecurityConfiguration.ConfigurationFactory.GetContentSecurityManager(),
-            AdvancedContentSecurityConfiguration.ConfigurationFactory.TracerRepository)
+        public SecurityCheck() : this(ConfigurationFactory.Default)
         {
 
+        }
+
+        [ExcludeFromCodeCoverage] // Configuration factory chained constructor
+        public SecurityCheck(IConfigurationFactory configurationFactory) : this(new SitecoreContextWrapper(), configurationFactory.GetContentSecurityManager(), configurationFactory.TracerRepository)
+        {
+            
         }
 
         public SecurityCheck(ISitecoreContextWrapper sitecoreContextWrapper, IContentSecurityManager contentSecurityManager, ITracerRepository tracerRepository)
