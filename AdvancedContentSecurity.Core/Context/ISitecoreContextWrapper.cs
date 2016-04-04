@@ -12,6 +12,8 @@ namespace AdvancedContentSecurity.Core.Context
 
         Item GetContextItem();
 
+        void SetContextItem(Item item);
+
         string GetSiteName();
 
         bool HasContextDatabase();

@@ -23,6 +23,11 @@ namespace AdvancedContentSecurity.Core.Context
             return Sitecore.Context.Item;
         }
 
+        public void SetContextItem(Item item)
+        {
+            Sitecore.Context.Item = item;
+        }
+
         public string GetSiteName()
         {
             return Sitecore.Context.Domain.Name;
