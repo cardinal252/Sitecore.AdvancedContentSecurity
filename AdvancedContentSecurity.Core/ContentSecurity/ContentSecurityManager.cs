@@ -43,6 +43,11 @@ namespace AdvancedContentSecurity.Core.ContentSecurity
             return EvaluateRules(item, rulesItems);
         }
 
+        public bool IsRuleReadAccessAllowed(CustomItemBase item, User user)
+        {
+            return IsRuleReadAccessAllowed(item.InnerItem, user);
+        }
+
         public virtual bool IsRestricted(Item item, User user)
         {
             const bool defaultValue = false;
@@ -62,6 +67,11 @@ namespace AdvancedContentSecurity.Core.ContentSecurity
             IEnumerable<Item> rulesItems = ItemRepository.GetItemsFromMultilist(item, ContentSecurityConstants.FieldNames.RestrictedRules);
 
             return EvaluateRules(item, rulesItems);
+        }
+
+        public bool IsRestricted(CustomItemBase item, User user)
+        {
+            return IsRestricted(item.InnerItem, user);
         }
 
         private bool EvaluateRules(Item item, IEnumerable<Item> rulesItems)

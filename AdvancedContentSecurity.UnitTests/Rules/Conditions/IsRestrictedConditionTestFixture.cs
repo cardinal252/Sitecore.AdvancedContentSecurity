@@ -106,7 +106,7 @@ namespace AdvancedContentSecurity.UnitTests.Rules.Conditions
 
             User user = AuthenticationManager.BuildVirtualUser("username", false);
 
-            testHarness.ContentSecurityManager.When(x => x.IsRestricted(null, user)).Throw<ArgumentNullException>();
+            testHarness.ContentSecurityManager.When(x => x.IsRestricted(null as Item, user)).Throw<ArgumentNullException>();
 
             RuleContext ruleContext = new RuleContext { Item = null };
             testHarness.SitecoreContextWrapper.GetCurrentUser().Returns(user);

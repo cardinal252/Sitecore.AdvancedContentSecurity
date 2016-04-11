@@ -7,6 +7,10 @@ namespace AdvancedContentSecurity.Core.ContentSecurity
     {
         bool IsRuleReadAccessAllowed(Item item, User user);
 
+        bool IsRuleReadAccessAllowed(CustomItemBase item, User user);
+
         bool IsRestricted(Item item, User user);
+
+        bool IsRestricted(CustomItemBase item, User user);
     }
 }

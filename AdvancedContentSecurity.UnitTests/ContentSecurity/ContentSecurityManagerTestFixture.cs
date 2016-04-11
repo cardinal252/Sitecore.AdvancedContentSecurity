@@ -401,7 +401,7 @@ namespace AdvancedContentSecurity.UnitTests.ContentSecurity
 ;
 
             // Act
-            Assert.Throws<ArgumentNullException>(() => testHarness.ContentSecurityManager.IsRestricted(null, user));
+            Assert.Throws<ArgumentNullException>(() => testHarness.ContentSecurityManager.IsRestricted(null as Item, user));
 
             // Assert
         }
@@ -435,7 +435,7 @@ namespace AdvancedContentSecurity.UnitTests.ContentSecurity
             ;
 
             // Act
-            Assert.Throws<ArgumentNullException>(() => testHarness.ContentSecurityManager.IsRuleReadAccessAllowed(null, user));
+            Assert.Throws<ArgumentNullException>(() => testHarness.ContentSecurityManager.IsRuleReadAccessAllowed(null as Item, user));
 
             // Assert
         }
