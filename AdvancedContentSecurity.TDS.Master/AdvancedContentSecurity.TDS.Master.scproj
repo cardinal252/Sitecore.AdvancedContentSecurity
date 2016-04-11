@@ -49,7 +49,7 @@
   <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
     <DebugSymbols>false</DebugSymbols>
     <OutputPath>.\bin\Release\</OutputPath>
-    <RecursiveDeployAction>Ignore</RecursiveDeployAction>
+    <RecursiveDeployAction>Delete</RecursiveDeployAction>
     <InstallSitecoreConnector>False</InstallSitecoreConnector>
     <DisableFileDeployment>True</DisableFileDeployment>
     <EnableValidations>False</EnableValidations>

@@ -48,6 +48,32 @@ namespace AdvancedContentSecurity.UnitTests.ContentSecurity
         }
 
         [Test]
+        public void IsRestricted_when_administrator_returns_false()
+        {
+            // Arrange
+            ContentSecurityManagerTestHarness testHarness = new ContentSecurityManagerTestHarness();
+
+            Guid itemId = Guid.NewGuid();
+            Guid templateId = Guid.NewGuid();
+            Guid branchId = Guid.Empty;
+            string itemName = "fred";
+
+            Item item = TestUtilities.GetTestItem(itemId, templateId, branchId, itemName);
+
+            User user = AuthenticationManager.BuildVirtualUser("username", false);
+            user.RuntimeSettings.IsAdministrator = true;
+
+            testHarness.ItemSecurityManager.HasPermission(ContentSecurityConstants.AccessRights.Restricted, item, user)
+                .Returns(false);
+
+            // Act
+            var result = testHarness.ContentSecurityManager.IsRestricted(item, user);
+
+            // Assert
+            result.Should().BeFalse();
+        }
+
+        [Test]
         public void IsRestricted_when_security_restricted_returns_false()
         {
             // Arrange
@@ -98,6 +124,46 @@ namespace AdvancedContentSecurity.UnitTests.ContentSecurity
                 .Returns("qwerty");
 
             User user = AuthenticationManager.BuildVirtualUser("username", false);
+
+            testHarness.ItemSecurityManager.HasPermission(ContentSecurityConstants.AccessRights.Restricted, item, user)
+                .Returns(false);
+
+            testHarness.ItemSecurityManager.HasPermission(ContentSecurityConstants.AccessRights.Rules, item, user)
+                .Returns(true);
+
+            testHarness.RulesManager.EvaluateRulesFromField<RuleContext>(
+                ContentSecurityConstants.FieldNames.Rule, rulesItem, item).Returns(true);
+
+            // Act
+            var result = testHarness.ContentSecurityManager.IsRestricted(item, user);
+
+            // Assert
+            result.Should().BeTrue();
+        }
+
+        [Test]
+        public void IsRestricted_when_user_is_administrator_and_restricted_rule_evaluates_true_returns_true()
+        {
+            // Arrange
+            ContentSecurityManagerTestHarness testHarness = new ContentSecurityManagerTestHarness();
+
+            Guid itemId = Guid.NewGuid();
+            Guid templateId = Guid.NewGuid();
+            Guid branchId = Guid.Empty;
+            string itemName = "fred";
+
+            Item item = TestUtilities.GetTestItem(itemId, templateId, branchId, itemName);
+
+            Guid rulesItemId = Guid.NewGuid();
+
+            Item rulesItem = TestUtilities.GetTestItem(rulesItemId, templateId, branchId, itemName);
+            List<Item> rulesItems = new List<Item> { rulesItem };
+            testHarness.ItemRepository.GetItemsFromMultilist(item, ContentSecurityConstants.FieldNames.RestrictedRules).Returns(rulesItems);
+            testHarness.ItemRepository.GetFieldValue(item, ContentSecurityConstants.FieldNames.RestrictedRules)
+                .Returns("qwerty");
+
+            User user = AuthenticationManager.BuildVirtualUser("username", false);
+            user.RuntimeSettings.IsAdministrator = true;
 
             testHarness.ItemSecurityManager.HasPermission(ContentSecurityConstants.AccessRights.Restricted, item, user)
                 .Returns(false);

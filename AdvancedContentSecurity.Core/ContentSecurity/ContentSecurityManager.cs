@@ -53,7 +53,7 @@ namespace AdvancedContentSecurity.Core.ContentSecurity
             const bool defaultValue = false;
             ValidateItemAndUser(item, user);
 
-            if (ItemSecurityManager.HasPermission(ContentSecurityConstants.AccessRights.Restricted, item, user))
+            if (!user.IsAdministrator && ItemSecurityManager.HasPermission(ContentSecurityConstants.AccessRights.Restricted, item, user))
             {
                 return true;
             }
