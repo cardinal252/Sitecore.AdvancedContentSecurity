@@ -19,15 +19,15 @@ AdvancedContentSecurity.Core.Rules.Actions.RemoveCurrentUserFromRole, AdvancedCo
 ----version----
 language: en
 version: 1
-revision: a3c1962c-f33f-416e-a242-e697265b11c7
+revision: 60548f40-b6ca-440c-8f91-670f2ab8ead5
 
 ----field----
 field: {EEB36A3B-40D9-4AF5-862A-DE257B84DCA3}
 name: Text
 key: text
-content-length: 47
+content-length: 56
 
-remove user from the  [role,,,role] if assigned
+remove user from the  [role,UserRoles,,role] if assigned
 ----field----
 field: {52807595-0F8F-4B20-8D2A-CB71D28C6103}
 name: __Owner
@@ -55,14 +55,14 @@ name: __Revision
 key: __revision
 content-length: 36
 
-a3c1962c-f33f-416e-a242-e697265b11c7
+60548f40-b6ca-440c-8f91-670f2ab8ead5
 ----field----
 field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
 name: __Updated
 key: __updated
 content-length: 16
 
-20160330T174123Z
+20160416T154922Z
 ----field----
 field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
 name: __Updated by

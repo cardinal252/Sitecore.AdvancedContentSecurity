@@ -9,7 +9,7 @@ namespace AdvancedContentSecurity.Core.Rules.Actions
 
         public override void Apply(T ruleContext)
         {
-            if (Sitecore.Security.Accounts.Role.Exists(Role))
+            if (!Sitecore.Security.Accounts.Role.Exists(Role))
             {
                 return;
             }

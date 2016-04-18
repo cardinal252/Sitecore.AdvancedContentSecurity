@@ -19,15 +19,15 @@ AdvancedContentSecurity.Core.Rules.Actions.AddCurrentUserToRole, AdvancedContent
 ----version----
 language: en
 version: 1
-revision: 739b3cb5-b9de-483d-b184-dfa67763dab7
+revision: bfd6a14f-bfac-4b84-932d-51a019b549af
 
 ----field----
 field: {EEB36A3B-40D9-4AF5-862A-DE257B84DCA3}
 name: Text
 key: text
-content-length: 46
+content-length: 54
 
-add user to the  [role,,,role] if not assigned
+add user to the [role,UserRoles,,role] if not assigned
 ----field----
 field: {52807595-0F8F-4B20-8D2A-CB71D28C6103}
 name: __Owner
@@ -55,14 +55,14 @@ name: __Revision
 key: __revision
 content-length: 36
 
-739b3cb5-b9de-483d-b184-dfa67763dab7
+bfd6a14f-bfac-4b84-932d-51a019b549af
 ----field----
 field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
 name: __Updated
 key: __updated
 content-length: 16
 
-20160330T174104Z
+20160416T154907Z
 ----field----
 field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
 name: __Updated by

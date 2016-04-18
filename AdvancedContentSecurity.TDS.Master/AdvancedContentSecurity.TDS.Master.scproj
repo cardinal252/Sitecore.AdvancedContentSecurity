@@ -50,14 +50,12 @@
     <DebugSymbols>false</DebugSymbols>
     <OutputPath>.\bin\Release\</OutputPath>
     <RecursiveDeployAction>Delete</RecursiveDeployAction>
-    <InstallSitecoreConnector>False</InstallSitecoreConnector>
+    <InstallSitecoreConnector>True</InstallSitecoreConnector>
     <DisableFileDeployment>True</DisableFileDeployment>
     <EnableValidations>False</EnableValidations>
     <ValidationSettingsFilePath>.\ContentSecurity.TDS.Master_Release.xml</ValidationSettingsFilePath>
-    <SitecoreWebUrl>
-    </SitecoreWebUrl>
-    <SitecoreAccessGuid>
-    </SitecoreAccessGuid>
+    <SitecoreWebUrl>http://sitecoreinstall.local</SitecoreWebUrl>
+    <SitecoreAccessGuid>e063ef89-dd15-4d9c-8539-3441bc4de822</SitecoreAccessGuid>
     <PackageName>AdvancedContentSecurity</PackageName>
     <GeneratePackage>True</GeneratePackage>
     <SeperateFilesAndItems>False</SeperateFilesAndItems>
