@@ -98,6 +98,57 @@ namespace AdvancedContentSecurity.UnitTests.ContentSecurity
             result.Should().BeFalse();
         }
 
+        [Test]
+        public void IsRestricted_for_role_returns_true()
+        {
+            // Arrange
+            ContentSecurityManagerTestHarness testHarness = new ContentSecurityManagerTestHarness();
+
+            Guid itemId = Guid.NewGuid();
+            Guid templateId = Guid.NewGuid();
+            Guid branchId = Guid.Empty;
+            string itemName = "fred";
+
+            Item item = TestUtilities.GetTestItem(itemId, templateId, branchId, itemName);
+
+            Role role = new TestRole("me\\test");
+
+            testHarness.ItemSecurityManager.HasPermission(ContentSecurityConstants.AccessRights.Restricted, item, role)
+                .Returns(true);
+
+            // Act
+            var result = testHarness.ContentSecurityManager.IsRestricted(item, role);
+
+            // Assert
+            result.Should().BeTrue();
+        }
+
+
+        [Test]
+        public void IsRestricted_for_role_returns_false()
+        {
+            // Arrange
+            ContentSecurityManagerTestHarness testHarness = new ContentSecurityManagerTestHarness();
+
+            Guid itemId = Guid.NewGuid();
+            Guid templateId = Guid.NewGuid();
+            Guid branchId = Guid.Empty;
+            string itemName = "fred";
+
+            Item item = TestUtilities.GetTestItem(itemId, templateId, branchId, itemName);
+
+            Role role = new TestRole("me\\test");
+
+            testHarness.ItemSecurityManager.HasPermission(ContentSecurityConstants.AccessRights.Restricted, item, role)
+                .Returns(false);
+
+            // Act
+            var result = testHarness.ContentSecurityManager.IsRestricted(item, role);
+
+            // Assert
+            result.Should().BeFalse();
+        }
+
         #endregion
 
         #region [ Rules based restriction tests ]
@@ -142,7 +193,7 @@ namespace AdvancedContentSecurity.UnitTests.ContentSecurity
         }
 
         [Test]
-        public void IsRestricted_when_user_is_administrator_and_restricted_rule_evaluates_true_returns_true()
+        public void IsRestricted_when_user_is_administrator_and_restricted_rule_evaluates_true_returns_false()
         {
             // Arrange
             ContentSecurityManagerTestHarness testHarness = new ContentSecurityManagerTestHarness();
@@ -178,7 +229,7 @@ namespace AdvancedContentSecurity.UnitTests.ContentSecurity
             var result = testHarness.ContentSecurityManager.IsRestricted(item, user);
 
             // Assert
-            result.Should().BeTrue();
+            result.Should().BeFalse();
         }
 
         [Test]
@@ -544,6 +595,13 @@ namespace AdvancedContentSecurity.UnitTests.ContentSecurity
             public IItemSecurityManager ItemSecurityManager { get; private set; }
 
             public IContentSecurityManager ContentSecurityManager { get; private set; }
+        }
+
+        public class TestRole : Role
+        {
+            public TestRole(string roleName) : base(roleName)
+            {
+            }
         }
     }
 }

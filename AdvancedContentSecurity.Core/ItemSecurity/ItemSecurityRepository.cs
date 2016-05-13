@@ -8,10 +8,10 @@ namespace AdvancedContentSecurity.Core.ItemSecurity
     [ExcludeFromCodeCoverage] // Integration testable only
     public class ItemSecurityRepository : IItemSecurityRepository
     {
-        public bool HasPermission(string permissionName, Item item, User user)
+        public bool HasPermission(string permissionName, Item item, Account account)
         {
             AccessRight accessRight = new AccessRight(permissionName);
-            return AuthorizationManager.IsAllowed(item, accessRight, user);
+            return AuthorizationManager.IsAllowed(item, accessRight, account);
         }
     }
 }

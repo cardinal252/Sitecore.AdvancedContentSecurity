@@ -5,6 +5,6 @@ namespace AdvancedContentSecurity.Core.ItemSecurity
 {
     public interface IItemSecurityManager
     {
-        bool HasPermission(string permissionName, Item item, User user);
+        bool HasPermission(string permissionName, Item item, Account account);
     }
 }

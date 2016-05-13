@@ -13,7 +13,7 @@ namespace AdvancedContentSecurity.Core.ItemSecurity
 
         protected IItemSecurityRepository ItemSecurityRepository { get; private set; }
 
-        public virtual bool HasPermission(string permissionName, Item item, User user)
+        public virtual bool HasPermission(string permissionName, Item item, Account account)
         {
             if (item == null)
             {
@@ -22,7 +22,7 @@ namespace AdvancedContentSecurity.Core.ItemSecurity
 
             try
             {
-                return ItemSecurityRepository.HasPermission(permissionName, item, user);
+                return ItemSecurityRepository.HasPermission(permissionName, item, account);
             }
             catch (Exception ex)
             {

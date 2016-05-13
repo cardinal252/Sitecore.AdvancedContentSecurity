@@ -25,14 +25,13 @@ namespace AdvancedContentSecurity.Core.ContentSecurity
 
         public IItemRepository ItemRepository { get; set; }
 
-        public virtual bool IsRuleReadAccessAllowed(Item item, User user)
+        public virtual bool IsRuleReadAccessAllowed(Item item, Account account)
         {
             const bool defaultValue = true;
 
-            ValidateItemAndUser(item, user);
+            ValidateItemAndUser(item, account);
 
-
-            if (!ItemSecurityManager.HasPermission(ContentSecurityConstants.AccessRights.Rules, item, user) || 
+            if (!ItemSecurityManager.HasPermission(ContentSecurityConstants.AccessRights.Rules, item, account) || 
                 String.IsNullOrEmpty(ItemRepository.GetFieldValue(item, ContentSecurityConstants.FieldNames.ReadRules)))
             {
                 return defaultValue;
@@ -43,22 +42,31 @@ namespace AdvancedContentSecurity.Core.ContentSecurity
             return EvaluateRules(item, rulesItems);
         }
 
-        public bool IsRuleReadAccessAllowed(CustomItemBase item, User user)
+        public bool IsRuleReadAccessAllowed(CustomItemBase item, Account account)
         {
-            return IsRuleReadAccessAllowed(item.InnerItem, user);
+            return IsRuleReadAccessAllowed(item.InnerItem, account);
         }
 
-        public virtual bool IsRestricted(Item item, User user)
+        public virtual bool IsRestricted(Item item, Account account)
         {
             const bool defaultValue = false;
-            ValidateItemAndUser(item, user);
+            ValidateItemAndUser(item, account);
 
-            if (!user.IsAdministrator && ItemSecurityManager.HasPermission(ContentSecurityConstants.AccessRights.Restricted, item, user))
+            User user = account as User;
+
+            bool isAdminUser = user != null && user.IsAdministrator;
+
+            if (isAdminUser)
+            {
+                return defaultValue;
+            }
+
+            if (ItemSecurityManager.HasPermission(ContentSecurityConstants.AccessRights.Restricted, item, account))
             {
                 return true;
             }
 
-            if (!ItemSecurityManager.HasPermission(ContentSecurityConstants.AccessRights.Rules, item, user) ||
+            if (!ItemSecurityManager.HasPermission(ContentSecurityConstants.AccessRights.Rules, item, account) ||
                 String.IsNullOrEmpty(ItemRepository.GetFieldValue(item, ContentSecurityConstants.FieldNames.RestrictedRules)))
             {
                 return defaultValue;
@@ -69,9 +77,9 @@ namespace AdvancedContentSecurity.Core.ContentSecurity
             return EvaluateRules(item, rulesItems);
         }
 
-        public bool IsRestricted(CustomItemBase item, User user)
+        public bool IsRestricted(CustomItemBase item, Account account)
         {
-            return IsRestricted(item.InnerItem, user);
+            return IsRestricted(item.InnerItem, account);
         }
 
         private bool EvaluateRules(Item item, IEnumerable<Item> rulesItems)
@@ -94,16 +102,16 @@ namespace AdvancedContentSecurity.Core.ContentSecurity
             return true;
         }
 
-        private static void ValidateItemAndUser(Item item, User user)
+        private static void ValidateItemAndUser(Item item, Account account)
         {
             if (item == null)
             {
                 throw new ArgumentNullException(nameof(item));
             }
 
-            if (user == null)
+            if (account == null)
             {
-                throw new ArgumentNullException(nameof(user));
+                throw new ArgumentNullException(nameof(account));
             }
         }
     }
